@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Nav from "./components/CategoriesNav";
+import Nav from "./components/CategoriesNavBar";
 
 export default {
   name: "App",
