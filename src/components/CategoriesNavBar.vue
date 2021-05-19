@@ -4,8 +4,6 @@
 				or we will direct to /whatEverTheCategoryName
 	-->
 
-  <!-- add icon to the refresh button and the new order button and the menu toggling -->
-
   <div class="bg-white">
     <img
       src="../assets/menu.svg"
@@ -40,15 +38,34 @@
     </div>
   </div>
 
-  <EmptyOrders />
+  <OngoingOrders  v-if="orders" :orders="orders" @orderSelected="displayOrderDetails" />
+  <EmptyOrders v-else/>
   
+  <OrderDetails v-show="selectedOrder" :order="selectedOrder"/>
+
 </template>
 
 <script>
 import EmptyOrders from "./EmptyOrders";
+import OngoingOrders from "./OngoingOrders";
+import OrderDetails from "./OrderDetails"
+
+import {categories} from "../data";
 
 export default {
-  components: { EmptyOrders },
+  components: { EmptyOrders, OngoingOrders, OrderDetails },
+  data: ()=>{
+		return{
+			orders: categories[1].orders,
+      selectedOrder: ""
+		}
+	},
+
+  methods: {
+    displayOrderDetails(e){
+      this.selectedOrder = e.num
+    }
+  }
 };
 </script>
 
