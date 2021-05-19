@@ -1,9 +1,4 @@
 <template>
-  <!--  
-				selecting a category should emit an event to the parent with the name value
-				or we will direct to /whatEverTheCategoryName
-	-->
-
   <div class="bg-white">
     <img
       src="../assets/menu.svg"
@@ -37,37 +32,7 @@
       </button>
     </div>
   </div>
-
-  <OngoingOrders  v-if="orders" :orders="orders" @orderSelected="displayOrderDetails" />
-  <EmptyOrders v-else/>
-  
-  <OrderDetails v-show="selectedOrder" :order="selectedOrder"/>
-
 </template>
-
-<script>
-import EmptyOrders from "./EmptyOrders";
-import OngoingOrders from "./OngoingOrders";
-import OrderDetails from "./OrderDetails"
-
-import {categories} from "../data";
-
-export default {
-  components: { EmptyOrders, OngoingOrders, OrderDetails },
-  data: ()=>{
-		return{
-			orders: categories[1].orders,
-      selectedOrder: ""
-		}
-	},
-
-  methods: {
-    displayOrderDetails(e){
-      this.selectedOrder = e.num
-    }
-  }
-};
-</script>
 
 <style>
 body {
