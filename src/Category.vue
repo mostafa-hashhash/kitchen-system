@@ -1,5 +1,4 @@
 <template>
-
   <NavBar />
 
   <OngoingOrders
@@ -10,11 +9,7 @@
 
   <EmptyOrders v-else />
 
-  <OrderDetails
-    v-show="selectedOrder"
-    :order="selectedOrder"
-  />
-
+  <OrderDetails v-show="selectedOrder" :order="selectedOrder" />
 </template>
 
 <script>
