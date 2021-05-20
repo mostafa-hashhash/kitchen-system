@@ -24,7 +24,7 @@
       <button
         class=" bg-green-700 text-white text-lg px-6 py-3 rounded-xl outline-none"
       >
-        <img src="../assets/plus.svg" class="inline ml-3" alt="Plus Sign" />
+        <img src="../assets/plus-order.svg" class="inline ml-3" alt="Plus Sign" />
         ابدأ طلب جديد
         <span class="bg-white text-green-700 rounded-full px-1 py-1 m-2">
           12

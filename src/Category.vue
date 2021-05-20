@@ -1,40 +1,44 @@
 <template>
-  <!--  
-				selecting a category should emit an event to the parent with the name value
-				or we will direct to /whatEverTheCategoryName
-	-->
 
-	<NavBar />
+  <NavBar />
 
-  <OngoingOrders  v-if="orders" :orders="orders" @orderSelected="displayOrderDetails" />
-  <EmptyOrders v-else/>
-  
-  <OrderDetails v-show="selectedOrder" :order="selectedOrder"/>
+  <OngoingOrders
+    v-if="orders"
+    :orders="orders"
+    @orderSelection="displayOrderDetails"
+  />
+
+  <EmptyOrders v-else />
+
+  <OrderDetails
+    v-show="selectedOrder"
+    :order="selectedOrder"
+  />
 
 </template>
 
 <script>
-import EmptyOrders from "./components/EmptyOrders";
+import NavBar from "./components/CategoriesNavBar";
 import OngoingOrders from "./components/OngoingOrders";
-import OrderDetails from "./components/OrderDetails"
-import NavBar from "./components/CategoriesNavBar"
+import EmptyOrders from "./components/EmptyOrders";
+import OrderDetails from "./components/OrderDetails";
 
-import {categories} from "./data";
+import { categories } from "./data";
 
 export default {
   components: { EmptyOrders, OngoingOrders, OrderDetails, NavBar },
-  data: ()=>{
-		return{
-			orders: categories[1].orders,
-      selectedOrder: ""
-		}
-	},
+  data: () => {
+    return {
+      orders: categories[1].orders,
+      selectedOrder: "",
+    };
+  },
 
   methods: {
-    displayOrderDetails(e){
-      this.selectedOrder = e.num
-    }
-  }
+    displayOrderDetails(e) {
+      this.selectedOrder = e.order;
+    },
+  },
 };
 </script>
 

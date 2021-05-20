@@ -7,7 +7,7 @@
     <button
       class=" bg-green-700 text-white text-lg px-6 py-3 rounded-xl outline-none"
     >
-      <img src="../assets/plus.svg" class="inline ml-3" alt="Plus Sign" />
+      <img src="../assets/plus-order.svg" class="inline ml-3" alt="Plus Sign" />
       ابدأ طلب جديد
     </button>
   </div>

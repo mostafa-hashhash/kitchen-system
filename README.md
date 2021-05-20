@@ -1,4 +1,4 @@
-# kitchen
+# Kitchen Display Systems
 
 ## Project setup
 ```
