@@ -1,7 +1,11 @@
 <template>
   <div class="relative flex min-h-screen">
     <div class="r-green w-2/5 bg-green-800 inline-block min-h-screen pt-10">
-      <img src="../assets/logo.svg" class="my-10 mx-auto pt-10" alt="Seoudi Logo" />
+      <img
+        src="@/assets/logo.svg"
+        class="my-10 mx-auto pt-10"
+        alt="Seoudi Logo"
+      />
       <h3 class="text-3xl text-white font-bold text-center my-10">
         نظام عرض المطبخ
       </h3>
@@ -55,7 +59,7 @@
 </template>
 
 <script>
-import { branches } from "../data";
+import { branches } from "@/data";
 
 export default {
   name: "login",

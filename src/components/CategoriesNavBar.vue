@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white">
     <img
-      src="../assets/menu.svg"
+      src="@/assets/menu.svg"
       class="bg-green-800 p-6 inline"
       alt="Toggle Menu Sign"
     />
@@ -18,21 +18,19 @@
       <button
         class="border-2 border-green-700 mx-5 p-3 rounded-2xl shadow-xl focus:shadow-none focus:outline-none"
       >
-        <img src="../assets/refresh.svg" alt="Refresh Arrows" />
+        <img src="@/assets/refresh.svg" alt="Refresh Arrows" />
       </button>
 
       <button
         class="new-order-btn bg-green-700 text-white text-lg px-6 py-3 rounded-xl shadow-xl focus:shadow-none focus:outline-none"
       >
         <img
-          src="../assets/plus-order.svg"
+          src="@/assets/plus-order.svg"
           class="inline ml-3"
           alt="Plus Sign"
         />
         ابدأ طلب جديد
-        <span
-          class="bg-white text-green-700 rounded-full px-1 py-1 m-2 "
-        >
+        <span class="bg-white text-green-700 rounded-full px-1 py-1 m-2 ">
           12
         </span>
       </button>
@@ -49,15 +47,14 @@ body {
   margin: auto;
 }
 
-.new-order-btn:active  {
+.new-order-btn:active {
   box-shadow: none;
   outline: none;
-  background-color: rgb(146, 185, 163) ;
+  background-color: rgb(146, 185, 163);
 }
 
 .refresh-btn:active {
   box-shadow: none;
   outline: none;
-
 }
 </style>
