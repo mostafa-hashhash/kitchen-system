@@ -11,7 +11,7 @@
 
   <OrderDetails v-show="selectedOrder" :order="selectedOrder" />
 
-  <FinishOrderModal />
+  <StartOrderModal />
 </template>
 
 <script>
@@ -19,7 +19,7 @@ import NavBar from "@/components/CategoriesNavBar";
 import OngoingOrders from "@/components/OngoingOrders";
 import EmptyOrders from "@/components/EmptyOrders";
 import OrderDetails from "@/components/OrderDetails";
-import FinishOrderModal from "@/components/FinishOrderModal";
+import StartOrderModal from "@/components/StartOrderModal";
 
 import { categories } from "@/data";
 
@@ -29,7 +29,7 @@ export default {
     OngoingOrders,
     OrderDetails,
     NavBar,
-    FinishOrderModal,
+    StartOrderModal,
   },
   data: () => {
     return {

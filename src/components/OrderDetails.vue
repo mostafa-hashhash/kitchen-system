@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white w-3/10 float-left">
+  <div class="bg-white w-3/10 float-left min-h-screen">
     <div class="p-4 bg-red-500 text-white">
       <p class="font-bold">
         <span class="float-rigth">{{ order.name }}</span>
@@ -38,22 +38,23 @@
       </div>
     </div>
 
-    <div class="p-2 mx-auto w-3/4">
-      <span>اختر عدد نسخ الطباعة</span>
+    <div class="mt-20">
+      <div class="p-2 mx-auto w-3/4">
+        <span>اختر عدد نسخ الطباعة</span>
 
-      <div class="inline float-left">
-        
-        <img src="@/assets/plus-print.svg" alt="" class="inline" />
-        <span> 1 </span>
-        <img src="@/assets/minus.svg" alt="" class="inline" />
+        <div class="inline float-left">
+          <img src="@/assets/plus-print.svg" alt="" class="inline" />
+          <span> 1 </span>
+          <img src="@/assets/minus.svg" alt="" class="inline" />
+        </div>
       </div>
-    </div>
 
-    <button
-      class="bg-green-700 py-3 px-8 w-3/4 mx-auto block text-white my-4 shadow-xl focus:shadow-none focus:outline-none focus:bg-green-700 rounded-lg"
-    >
-      إنهاء الطلب
-    </button>
+      <button
+        class="bg-green-700 py-3 px-8 w-3/4 mx-auto block text-white my-4 shadow-xl focus:shadow-none focus:outline-none focus:bg-green-700 rounded-lg"
+      >
+        إنهاء الطلب
+      </button>
+    </div>
   </div>
 </template>
 
