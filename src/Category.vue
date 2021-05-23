@@ -1,17 +1,20 @@
 <template>
-  <NavBar />
+  <div class="static">
+    <NavBar />
 
-  <OngoingOrders
-    v-if="orders"
-    :orders="orders"
-    @orderSelection="displayOrderDetails"
-  />
+    <OngoingOrders
+      v-if="orders"
+      :orders="orders"
+      @orderSelection="displayOrderDetails"
+    />
 
-  <EmptyOrders v-else />
+    <EmptyOrders v-else />
 
-  <OrderDetails v-show="selectedOrder" :order="selectedOrder" />
+    <OrderDetails v-show="selectedOrder" :order="selectedOrder" />
 
-  <StartOrderModal />
+    <StartOrderModal />
+    <SideBarMenu />
+  </div>
 </template>
 
 <script>
@@ -20,6 +23,7 @@ import OngoingOrders from "@/components/OngoingOrders";
 import EmptyOrders from "@/components/EmptyOrders";
 import OrderDetails from "@/components/OrderDetails";
 import StartOrderModal from "@/components/StartOrderModal";
+import SideBarMenu from "@/components/SideBarMenu";
 
 import { categories } from "@/data";
 
@@ -30,6 +34,7 @@ export default {
     OrderDetails,
     NavBar,
     StartOrderModal,
+    SideBarMenu,
   },
   data: () => {
     return {
