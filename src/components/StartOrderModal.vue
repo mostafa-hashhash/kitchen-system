@@ -3,11 +3,11 @@
     <img src="@/assets/card.svg" alt="ID Card Icon" class="mx-auto" />
     <p class="my-4 text-center">قم بمسح الكارت الخاص بك</p>
 
-		<div class="text-center">  
-      <img class="inline w-2/5" src="@/assets/bar.svg" alt="">
+    <div class="text-center">
+      <img class="inline w-2/5" src="@/assets/bar.svg" alt="" />
       <span class="m-4 bolck">أو</span>
-      <img class="inline w-2/5" src="@/assets/bar.svg" alt="">
-		</div>
+      <img class="inline w-2/5" src="@/assets/bar.svg" alt="" />
+    </div>
 
     <p class="my-4 text-center">أدخل الكود بدلا من ذلك</p>
 
@@ -27,7 +27,6 @@
         ابدأ الطلب
       </button>
     </div>
-
   </div>
 </template>
 
@@ -42,11 +41,8 @@ export default {
 </script>
 
 <style>
-
 .start-order-btn:active {
   box-shadow: none !important;
-  outline: none !important;
   background-color: #005931 !important;
 }
-
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-2/5 float-rigth inline-block">
+  <div class="w-2/5 float-rigth inline-block h-80 border">
     <div
       v-for="(order, index) in orders"
       :key="order.number"
@@ -13,8 +13,9 @@
       </p>
       <p>
         <span class="float-rigth">
-          <img src="@/assets/time.svg" class="inline" alt="" width="15">
-          {{ order.date }}</span>
+          <img src="@/assets/time.svg" class="inline" alt="" width="15" />
+          {{ order.date }}</span
+        >
         <span class="float-left">{{ order.items.length }} منتجات</span>
       </p>
     </div>
@@ -34,11 +35,12 @@ export default {
 
   methods: {
     notifySelection(order, index) {
-
       this.previousId = this.currentId;
 
-      if(this.previousId)
-        document.querySelector(this.previousId).classList.remove("order-ticket");
+      if (this.previousId)
+        document
+          .querySelector(this.previousId)
+          .classList.remove("order-ticket");
 
       this.currentId = "#id" + index;
       document.querySelector(this.currentId).classList.add("order-ticket");

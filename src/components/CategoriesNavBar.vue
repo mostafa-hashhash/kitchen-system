@@ -16,13 +16,13 @@
 
     <div class="float-left mx-8 py-4 ">
       <button
-        class="border-2 border-green-700 mx-5 p-3 rounded-2xl shadow-xl focus:shadow-none focus:outline-none"
+        class="refresh-btn border-2 border-green-700 mx-5 p-3 rounded-2xl shadow-xl focus:outline-none"
       >
         <img src="@/assets/refresh.svg" alt="Refresh Arrows" />
       </button>
 
       <button
-        class="new-order-btn bg-green-700 text-white text-lg px-6 py-3 rounded-xl shadow-xl focus:shadow-none focus:outline-none"
+        class="new-order-btn bg-green-700 text-white text-lg px-6 py-3 rounded-xl shadow-xl focus:outline-none"
       >
         <img
           src="@/assets/plus-order.svg"
@@ -50,7 +50,7 @@ body {
 .new-order-btn:active {
   box-shadow: none;
   outline: none;
-  background-color: rgb(146, 185, 163);
+  background-color: #005931;
 }
 
 .refresh-btn:active {

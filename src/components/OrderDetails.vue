@@ -1,12 +1,16 @@
 <template>
   <div class="bg-white w-3/10 float-left min-h-screen">
     <div class="p-4 bg-red-500 text-white">
-      <p class="font-bold">
-        <span class="float-rigth">{{ order.name }}</span>
-        <span class="float-left">#{{ order.number }} </span>
+      <p class="mb-2">
+        <span class="float-rigth font-bold">{{ order.name }}</span>
+        <span class="float-left">طلب رقم </span>
       </p>
       <p>
-        <span class="float-rigth">{{ order.date }}</span>
+        <span class="float-rigth">
+          <img src="@/assets/time.svg" class="inline" alt="" width="15" />
+          {{ order.date }}</span
+        >
+        <span class="float-left font-bold">#{{ order.number }}</span>
       </p>
     </div>
 
@@ -50,7 +54,7 @@
       </div>
 
       <button
-        class="bg-green-700 py-3 px-8 w-3/4 mx-auto block text-white my-4 shadow-xl focus:shadow-none focus:outline-none focus:bg-green-700 rounded-lg"
+        class=" finish-order-btn bg-green-700 py-3 px-8 w-3/4 mx-auto block text-white my-4 shadow-xl focus:outline-none rounded-lg"
       >
         إنهاء الطلب
       </button>
@@ -64,4 +68,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+.finish-order-btn:active {
+  box-shadow: none;
+}
+
+</style>
