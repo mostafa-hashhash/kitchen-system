@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Nav from "./Category";
+import Nav from "@/Category";
 
 export default {
   name: "App",
