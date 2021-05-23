@@ -16,17 +16,23 @@
 
     <div class="float-left mx-8 py-4 ">
       <button
-        class="border-2 border-green-700 mx-5 p-3 rounded-2xl outline-none"
+        class="border-2 border-green-700 mx-5 p-3 rounded-2xl shadow-xl focus:shadow-none focus:outline-none"
       >
         <img src="../assets/refresh.svg" alt="Refresh Arrows" />
       </button>
 
       <button
-        class=" bg-green-700 text-white text-lg px-6 py-3 rounded-xl outline-none"
+        class="new-order-btn bg-green-700 text-white text-lg px-6 py-3 rounded-xl shadow-xl focus:shadow-none focus:outline-none"
       >
-        <img src="../assets/plus-order.svg" class="inline ml-3" alt="Plus Sign" />
+        <img
+          src="../assets/plus-order.svg"
+          class="inline ml-3"
+          alt="Plus Sign"
+        />
         ابدأ طلب جديد
-        <span class="bg-white text-green-700 rounded-full px-1 py-1 m-2">
+        <span
+          class="bg-white text-green-700 rounded-full px-1 py-1 m-2 "
+        >
           12
         </span>
       </button>
@@ -39,11 +45,19 @@ body {
   background-color: #e5e5e5;
 }
 
-button:active {
-  outline: none;
-}
-
 .mark {
   margin: auto;
+}
+
+.new-order-btn:active  {
+  box-shadow: none;
+  outline: none;
+  background-color: rgb(146, 185, 163) ;
+}
+
+.refresh-btn:active {
+  box-shadow: none;
+  outline: none;
+
 }
 </style>

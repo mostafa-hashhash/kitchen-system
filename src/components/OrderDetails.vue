@@ -38,17 +38,22 @@
       </div>
     </div>
 
-		<div class="p-2 mx-auto w-3/4">
-			<span>اختر عدد نسخ الطباعة</span>
+    <div class="p-2 mx-auto w-3/4">
+      <span>اختر عدد نسخ الطباعة</span>
 
-			<div class="inline float-left">
-				<img src="@/assets/plus-print.svg" alt="" class="inline">
-				<span> 1 </span>
-				<img src="@/assets/minus.svg" alt="" class="inline">
-			</div>
-		</div>
+      <div class="inline float-left">
+        
+        <img src="@/assets/plus-print.svg" alt="" class="inline" />
+        <span> 1 </span>
+        <img src="@/assets/minus.svg" alt="" class="inline" />
+      </div>
+    </div>
 
-		<button class="bg-green-700 py-3 px-8 w-3/4 mx-auto block text-white my-4">إنهاء الطلب</button>
+    <button
+      class="bg-green-700 py-3 px-8 w-3/4 mx-auto block text-white my-4 shadow-xl focus:shadow-none focus:outline-none focus:bg-green-700 rounded-lg"
+    >
+      إنهاء الطلب
+    </button>
   </div>
 </template>
 

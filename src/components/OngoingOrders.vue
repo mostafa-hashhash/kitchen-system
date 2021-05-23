@@ -3,7 +3,7 @@
     <div
       v-for="order in orders"
       :key="order.number"
-      class="w-60 m-3 rounded-lg p-2 bg-red-500 text-white"
+      class="w-60 m-4 rounded-lg p-2 bg-red-500 text-white shadow-lg "
       @click="notifySelection(order)"
     >
       <p class="font-bold">
