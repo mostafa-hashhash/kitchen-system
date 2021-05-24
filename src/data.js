@@ -1,4 +1,4 @@
-export const branches = [
+export let branches = [
 	{
 		name: "القاهرة",
 		value: "" ,
@@ -26,7 +26,7 @@ export const branches = [
 	}
 ]
 
-export const categories = [
+export let categories = [
 	{
 		name: "قسم الجبن",
 		orders: [
@@ -40,55 +40,28 @@ export const categories = [
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-				]
-			},
-			{
-				name: "أحمد ابراهيم",
-				number: "123456",
-				date: "2:30 ص",
-				items: [
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 				]
 			},
@@ -102,55 +75,28 @@ export const categories = [
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-				]
-			},
-			{
-				name: "أحمد ابراهيم",
-				number: "123456",
-				date: "2:30 ص",
-				items: [
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 				]
 			},
@@ -164,24 +110,98 @@ export const categories = [
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+				]
+			},
+			{
+				name: "أحمد ابراهيم",
+				number: "123456",
+				date: "2:30 ص",
+				items: [
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+				]
+			},
+			{
+				name: "أحمد ابراهيم",
+				number: "123456",
+				date: "2:30 ص",
+				items: [
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 				]
 			}
@@ -200,55 +220,28 @@ export const categories = [
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-				]
-			},
-			{
-				name: "أحمد ابراهيم",
-				number: "123456",
-				date: "2:30 ص",
-				items: [
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 				]
 			},
@@ -262,55 +255,28 @@ export const categories = [
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-				]
-			},
-			{
-				name: "أحمد ابراهيم",
-				number: "123456",
-				date: "2:30 ص",
-				items: [
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 				]
 			},
@@ -324,24 +290,98 @@ export const categories = [
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+				]
+			},
+			{
+				name: "أحمد ابراهيم",
+				number: "123456",
+				date: "2:30 ص",
+				items: [
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+				]
+			},
+			{
+				name: "أحمد ابراهيم",
+				number: "123456",
+				date: "2:30 ص",
+				items: [
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 				]
 			}
@@ -360,55 +400,28 @@ export const categories = [
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-				]
-			},
-			{
-				name: "أحمد ابراهيم",
-				number: "123456",
-				date: "2:30 ص",
-				items: [
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 				]
 			},
@@ -422,55 +435,28 @@ export const categories = [
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-				]
-			},
-			{
-				name: "أحمد ابراهيم",
-				number: "123456",
-				date: "2:30 ص",
-				items: [
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
-					},
-					{
-						type: "جبنة رومي",
-						quantity: "0.5",
-						measurmentUnit: "كيلو",
-						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 				]
 			},
@@ -484,24 +470,98 @@ export const categories = [
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 					{
 						type: "جبنة رومي",
 						quantity: "0.5",
 						measurmentUnit: "كيلو",
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+				]
+			},
+			{
+				name: "أحمد ابراهيم",
+				number: "123456",
+				date: "2:30 ص",
+				items: [
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+				]
+			},
+			{
+				name: "أحمد ابراهيم",
+				number: "123456",
+				date: "2:30 ص",
+				items: [
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
 					},
 				]
 			}

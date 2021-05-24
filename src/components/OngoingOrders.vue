@@ -56,7 +56,7 @@ export default {
         .querySelector(this.currentId)
         .classList.add("selected-order-wrapper");
 
-      this.$emit("orderSelection", { order: order });
+      this.$emit("orderSelection", { order: order, orderIndex: index });
     },
   },
 };

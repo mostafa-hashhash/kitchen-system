@@ -10,7 +10,12 @@
 
     <EmptyOrders v-else />
 
-    <OrderDetails v-show="selectedOrder" :order="selectedOrder" />
+    <OrderDetails
+      v-show="selectedOrder"
+      :order="selectedOrder"
+      @confirmOrderItem="confirm"
+      @cancelOrderItem="cancel"
+    />
 
     <StartOrderModal />
 
@@ -42,25 +47,31 @@ export default {
       orders: "",
       selectedOrder: "",
       categoryIndex: 0,
-      selectedCategory:""
+      selectedCategory: "",
+      selectedOrderIndex: ""
     };
   },
 
   methods: {
     displayOrderDetails(e) {
       this.selectedOrder = e.order;
+      this.selectedOrderIndex = e.orderIndex
     },
 
-    displayCategoryOrders(e){
-      this.categoryIndex = e?.categoryIndex || 0
-      this.selectedCategory = categories[this.categoryIndex].name
-      this.orders = categories[this.categoryIndex].orders
-    }
+    displayCategoryOrders(e) {
+      this.categoryIndex = e?.categoryIndex || 0;
+      this.selectedCategory = categories[this.categoryIndex].name;
+      this.orders = categories[this.categoryIndex].orders;
+    },
+
+    confirm(e) {
+      categories[this.categoryIndex].orders[this.selectedOrderIndex].items[e.itemNumber].status = e.itemStatus
+    },
   },
 
-  mounted: function(){
-    this.displayCategoryOrders()
-  }
+  mounted: function() {
+    this.displayCategoryOrders();
+  },
 };
 </script>
 

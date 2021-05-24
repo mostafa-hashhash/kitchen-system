@@ -16,7 +16,7 @@
 
     <div class="p-4 ">
       <div
-        v-for="item in order.items"
+        v-for="(item, itemIndex) in order.items"
         :key="item.name"
         class="border-b-2 border-gray-300 my-3"
       >
@@ -32,11 +32,13 @@
             src="@/assets/confirm.svg"
             alt="Confirm Icon"
             class="inline mx-2 mb-3"
+            @click="changeItemStatus(itemIndex,'confirmed')"
           />
           <img
             src="@/assets/cancel.svg"
             alt="Cancel Icon"
             class="inline mx-2 mb-3 mt-0 pt-0"
+            @click="changeItemStatus(itemIndex,'cancelled')"
           />
         </div>
       </div>
@@ -65,13 +67,20 @@
 <script>
 export default {
   props: ["order"],
+
+  methods: {
+    changeItemStatus(idx, newStatus) {
+      this.$emit("confirmOrderItem", {
+        itemNumber: idx,
+        itemStatus: newStatus
+      });
+    }
+  },
 };
 </script>
 
 <style>
-
 .finish-order-btn:active {
   box-shadow: none;
 }
-
 </style>
