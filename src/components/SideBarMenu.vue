@@ -17,18 +17,18 @@
     <div>
       <h3 class="mt-5">الأقسام</h3>
       <ul>
-        <li><a href="#"> قسم الجبن</a></li>
-        <li><a href="#"> قسم اللحوم</a></li>
-        <li><a href="#"> قسم الأسماك</a></li>
+        <li @click="notifyCategortySelection(0)" ><a> قسم الجبن</a></li>
+        <li @click="notifyCategortySelection(1)"><a> قسم اللحوم</a></li>
+        <li @click="notifyCategortySelection(2)"><a> قسم الأسماك</a></li>
       </ul>
     </div>
 
     <div>
       <h3 class="mt-10">الإعدادات</h3>
       <ul>
-        <li><a href="#">ضبط الطابعة</a></li>
-        <li><a href="#">تغيير كلمة السر</a></li>
-        <li><a href="#" class="logout">تسجيل الخروج</a></li>
+        <li><a>ضبط الطابعة</a></li>
+        <li><a>تغيير كلمة السر</a></li>
+        <li><a class="logout">تسجيل الخروج</a></li>
       </ul>
     </div>
   </div>
@@ -50,6 +50,10 @@ export default {
 
       document.querySelector(".opened-menu").style.display = "none";
     },
+
+		notifyCategortySelection(num){
+			this.$emit('categorySelection',{ categoryIndex: num})
+		}
   },
 };
 </script>
@@ -68,6 +72,7 @@ ul li:hover {
   border-right: 5px solid green;
   padding: 10px 45px;
   font-weight: bold;
+	cursor: pointer !important;
 }
 
 h3 {

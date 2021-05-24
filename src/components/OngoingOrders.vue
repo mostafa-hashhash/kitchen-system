@@ -5,7 +5,7 @@
       :key="order.number"
       class="w-80 mx-3 order-wrapper"
       :id="'id' + index"
-      @click="notifySelection(order, index)"
+      @click="notifyOrderSelection(order, index)"
     >
       <div
         class="order-red m-2 text-white p-4 rounded-lg"
@@ -43,7 +43,7 @@ export default {
   props: ["orders"],
 
   methods: {
-    notifySelection(order, index) {
+    notifyOrderSelection(order, index) {
       this.previousId = this.currentId;
 
       if (this.previousId)

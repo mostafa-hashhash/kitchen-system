@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <div class="mt-20">
+    <div>
       <div class="p-2 mx-auto w-3/4">
         <span>اختر عدد نسخ الطباعة</span>
 

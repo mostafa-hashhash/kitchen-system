@@ -188,7 +188,7 @@ export const categories = [
 		]
 	},
 	{
-		name: "قسم الاسماك",
+		name: "قسم اللحوم",
 		orders: [
 			{
 				name: "أحمد ابراهيم",
@@ -348,7 +348,7 @@ export const categories = [
 		]
 	},
 	{
-		name: "قسم المشروبات",
+		name: "قسم الأسماك",
 		orders: [
 			{
 				name: "أحمد ابراهيم",

@@ -6,7 +6,7 @@
       alt="Toggle Menu Sign"
     />
     <span class="inline-block text-xl bg-green-700 p-8 font-bold text-white">
-      قسم الجبن
+      {{ categoryName }}
     </span>
 
     <span class="mr-10 text-xl">قيد التحضير</span>
@@ -37,6 +37,12 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ["categoryName"]
+}
+</script>
 
 <style>
 body {

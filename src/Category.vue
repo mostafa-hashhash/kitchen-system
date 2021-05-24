@@ -1,6 +1,6 @@
 <template>
   <div class="static">
-    <NavBar />
+    <NavBar :categoryName="selectedCategory" />
 
     <OngoingOrders
       v-if="orders"
@@ -13,7 +13,8 @@
     <OrderDetails v-show="selectedOrder" :order="selectedOrder" />
 
     <StartOrderModal />
-    <SideBarMenu />
+
+    <SideBarMenu @categorySelection="displayCategoryOrders" />
   </div>
 </template>
 
@@ -38,8 +39,10 @@ export default {
   },
   data: () => {
     return {
-      orders: categories[1].orders,
+      orders: "",
       selectedOrder: "",
+      categoryIndex: 0,
+      selectedCategory:""
     };
   },
 
@@ -47,7 +50,17 @@ export default {
     displayOrderDetails(e) {
       this.selectedOrder = e.order;
     },
+
+    displayCategoryOrders(e){
+      this.categoryIndex = e?.categoryIndex || 0
+      this.selectedCategory = categories[this.categoryIndex].name
+      this.orders = categories[this.categoryIndex].orders
+    }
   },
+
+  mounted: function(){
+    this.displayCategoryOrders()
+  }
 };
 </script>
 
