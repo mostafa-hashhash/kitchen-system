@@ -1,10 +1,10 @@
 <template>
   <div class="static">
-    <NavBar :categoryName="selectedCategory" />
+    <NavBar :categoryName="selectedCategoryName" />
 
     <OngoingOrders
-      v-if="orders"
-      :orders="orders"
+      v-if="displayedOrders"
+      :orders="displayedOrders"
       @orderSelection="displayOrderDetails"
     />
 
@@ -13,8 +13,7 @@
     <OrderDetails
       v-show="selectedOrder"
       :order="selectedOrder"
-      @confirmOrderItem="confirm"
-      @cancelOrderItem="cancel"
+      @newOrderStatus="handleNewOrderStatus"
     />
 
     <StartOrderModal />
@@ -44,10 +43,10 @@ export default {
   },
   data: () => {
     return {
-      orders: "",
+      displayedOrders: "",
       selectedOrder: "",
       categoryIndex: 0,
-      selectedCategory: "",
+      selectedCategoryName: "",
       selectedOrderIndex: ""
     };
   },
@@ -60,11 +59,11 @@ export default {
 
     displayCategoryOrders(e) {
       this.categoryIndex = e?.categoryIndex || 0;
-      this.selectedCategory = categories[this.categoryIndex].name;
-      this.orders = categories[this.categoryIndex].orders;
+      this.selectedCategoryName = categories[this.categoryIndex].name;
+      this.displayedOrders = categories[this.categoryIndex].orders;
     },
 
-    confirm(e) {
+    handleNewOrderStatus(e) {
       categories[this.categoryIndex].orders[this.selectedOrderIndex].items[e.itemNumber].status = e.itemStatus
     },
   },

@@ -45,9 +45,6 @@ export default {
 </script>
 
 <style>
-body {
-  background-color: #e5e5e5;
-}
 
 .mark {
   margin: auto;
