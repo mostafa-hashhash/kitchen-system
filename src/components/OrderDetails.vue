@@ -21,13 +21,14 @@
         class="border-b border-gray-300 my-2 py-2"
       >
         <div class="inline-block">
-          <p class="font-bold my-1 py-1">
-            {{ item.quantity }} {{ item.measurmentUnit }} - {{ item.type }}
+          <p class="my-1 py-1">
+            <b>{{ item.quantity }} {{ item.measurmentUnit }}</b>
+            - {{ item.type }}
           </p>
           <p class="font-light">"{{ item.note }}"</p>
         </div>
 
-        <div class="inline-block mr-10" v-if="item.status == ''">
+        <div class="inline-block mr-8" v-if="item.status == ''">
           <img
             src="@/assets/confirm.svg"
             alt="Confirm Icon"
@@ -42,7 +43,7 @@
           />
         </div>
 
-        <div v-else-if="item.status == 'confirmed'" class="inline-block mr-10">
+        <div v-else-if="item.status == 'confirmed'" class="inline-block mr-8">
           <img src="@/assets/confirm-active.svg" class="inline mx-2 mb-3" />
           <img
             src="@/assets/cancel.svg"
@@ -51,7 +52,7 @@
           />
         </div>
 
-        <div v-else class="inline-block mr-10">
+        <div v-else class="inline-block mr-8">
           <img
             src="@/assets/confirm.svg"
             class="inline mx-2 mb-3"
