@@ -1,5 +1,5 @@
 <template>
-  <div class="w-3/5 float-rigth inline-block h-80 border mt-2">
+  <div class="w-3/5 float-rigth h-80 border inline-block mt-2">
     <div
       v-for="(order, index) in orders"
       :key="order.number"
@@ -8,11 +8,11 @@
       @click="notifyOrderSelection(order, index)"
     >
       <div
-        class="order-red m-2 text-white p-4 rounded-lg"
+        class="m-2 text-white p-4 rounded-lg"
         :class="{
-          'order-red': order.status == 'new',
-          'order-orange': order.status == 'preparing',
-          'order-green': order.status == 'ready',
+          'bg-red-450': order.status == 'new',
+          'bg-yellow-450': order.status == 'preparing',
+          'bg-green-450': order.status == 'ready',
         }"
       >
         <p class="font-bold mb-2">
@@ -72,15 +72,4 @@ export default {
   border-radius: 10px;
 }
 
-.order-red {
-  background-color: #f24e40;
-}
-
-.order-green {
-  background-color: #84c559;
-}
-
-.order-orange {
-  background-color: #f5a623;
-}
 </style>

@@ -29,6 +29,7 @@ export let categories = [
 				name: "أحمد ابراهيم",
 				number: "123456",
 				date: "2:30 ص",
+				status: "preparing",
 				items: [
 					{
 						type: "جبنة رومي",
@@ -64,6 +65,7 @@ export let categories = [
 				name: "أحمد ابراهيم",
 				number: "123456",
 				date: "2:30 ص",
+				status: "new",
 				items: [
 					{
 						type: "جبنة رومي",
@@ -99,6 +101,7 @@ export let categories = [
 				name: "أحمد ابراهيم",
 				number: "123456",
 				date: "2:30 ص",
+				status: "new",
 				items: [
 					{
 						type: "جبنة رومي",
@@ -134,6 +137,7 @@ export let categories = [
 				name: "أحمد ابراهيم",
 				number: "123456",
 				date: "2:30 ص",
+				status: "ready",
 				items: [
 					{
 						type: "جبنة رومي",
@@ -169,6 +173,7 @@ export let categories = [
 				name: "أحمد ابراهيم",
 				number: "123456",
 				date: "2:30 ص",
+				status: "preparing",
 				items: [
 					{
 						type: "جبنة رومي",
@@ -209,6 +214,7 @@ export let categories = [
 				name: "أحمد ابراهيم",
 				number: "123456",
 				date: "2:30 ص",
+				status: "preparing",
 				items: [
 					{
 						type: "جبنة رومي",
@@ -244,6 +250,7 @@ export let categories = [
 				name: "أحمد ابراهيم",
 				number: "123456",
 				date: "2:30 ص",
+				status: "preparing",
 				items: [
 					{
 						type: "جبنة رومي",
@@ -279,6 +286,7 @@ export let categories = [
 				name: "أحمد ابراهيم",
 				number: "123456",
 				date: "2:30 ص",
+				status: "preparing",
 				items: [
 					{
 						type: "جبنة رومي",
@@ -314,6 +322,7 @@ export let categories = [
 				name: "أحمد ابراهيم",
 				number: "123456",
 				date: "2:30 ص",
+				status: "preparing",
 				items: [
 					{
 						type: "جبنة رومي",
@@ -349,6 +358,7 @@ export let categories = [
 				name: "أحمد ابراهيم",
 				number: "123456",
 				date: "2:30 ص",
+				status: "preparing",
 				items: [
 					{
 						type: "جبنة رومي",
@@ -389,6 +399,7 @@ export let categories = [
 				name: "أحمد ابراهيم",
 				number: "123456",
 				date: "2:30 ص",
+				status: "preparing",
 				items: [
 					{
 						type: "جبنة رومي",
@@ -424,6 +435,7 @@ export let categories = [
 				name: "أحمد ابراهيم",
 				number: "123456",
 				date: "2:30 ص",
+				status: "preparing",
 				items: [
 					{
 						type: "جبنة رومي",
@@ -459,6 +471,7 @@ export let categories = [
 				name: "أحمد ابراهيم",
 				number: "123456",
 				date: "2:30 ص",
+				status: "preparing",
 				items: [
 					{
 						type: "جبنة رومي",
@@ -494,6 +507,7 @@ export let categories = [
 				name: "أحمد ابراهيم",
 				number: "123456",
 				date: "2:30 ص",
+				status: "preparing",
 				items: [
 					{
 						type: "جبنة رومي",
@@ -529,6 +543,7 @@ export let categories = [
 				name: "أحمد ابراهيم",
 				number: "123456",
 				date: "2:30 ص",
+				status: "preparing",
 				items: [
 					{
 						type: "جبنة رومي",
