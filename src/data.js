@@ -1,28 +1,23 @@
 export let branches = [
 	{
 		name: "القاهرة",
-		value: "" ,
-		id: ""
+		value: "cairo"
 	},
 	{
 		name: "مكة",
-		value: "" ,
-		id: ""
+		value: "mekka"
 	},
 	{
 		name: "دبي",
-		value: "" ,
-		id: ""
+		value: "dubai"
 	},
 	{
 		name: "المنصورة",
-		value: "" ,
-		id: ""
+		value: "mansoura"
 	},
 	{
 		name: "الرياض",
-		value: "" ,
-		id: ""
+		value: "riyad"
 	}
 ]
 

@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Nav from "@/Category";
+import Nav from "@/login";
 
 export default {
   name: "App",
@@ -14,12 +14,12 @@ export default {
 </script>
 
 <style>
-html,
-body {
-  padding: 0px;
-  margin: 0px;
-  widows: 100%;
+html{
   height: 100%;
+}
+
+body {
+  min-height: 100%;
 }
 * {
   direction: rtl;
