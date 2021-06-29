@@ -78,7 +78,7 @@
       </div>
 
       <button
-        class=" finish-order-btn bg-green-700 py-3 px-8 w-3/4 mx-auto block text-white my-4 shadow-xl focus:outline-none rounded-lg"
+        class=" finish-order-btn bg-green-750 py-3 px-8 w-3/4 mx-auto block text-white my-4 shadow-xl focus:outline-none rounded-lg"
       >
         إنهاء الطلب
       </button>

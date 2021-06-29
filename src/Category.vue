@@ -1,6 +1,9 @@
 <template>
   <div class="static">
-    <NavBar :categoryName="selectedCategoryName" />
+    <NavBar
+      :categoryName="selectedCategoryName"
+      @openMenuClick="openSidebarMenu()"
+    />
 
     <OngoingOrders
       v-if="displayedOrders"
@@ -18,7 +21,11 @@
 
     <StartOrderModal />
 
-    <SideBarMenu @categorySelection="displayCategoryOrders" />
+    <SideBarMenu
+      @categorySelection="displayCategoryOrders"
+      @closeMenuClick="closeSidebarMenu"
+      v-show="displaySidebarMenu"
+    />
   </div>
 </template>
 
@@ -47,14 +54,15 @@ export default {
       selectedOrder: "",
       categoryIndex: 0,
       selectedCategoryName: "",
-      selectedOrderIndex: ""
+      selectedOrderIndex: "",
+      displaySidebarMenu: false,
     };
   },
 
   methods: {
     displayOrderDetails(e) {
       this.selectedOrder = e.order;
-      this.selectedOrderIndex = e.orderIndex
+      this.selectedOrderIndex = e.orderIndex;
     },
 
     displayCategoryOrders(e) {
@@ -64,7 +72,17 @@ export default {
     },
 
     handleNewOrderStatus(e) {
-      categories[this.categoryIndex].orders[this.selectedOrderIndex].items[e.itemNumber].status = e.itemStatus
+      categories[this.categoryIndex].orders[this.selectedOrderIndex].items[
+        e.itemNumber
+      ].status = e.itemStatus;
+    },
+
+    openSidebarMenu() {
+      this.displaySidebarMenu = true;
+    },
+
+    closeSidebarMenu() {
+      this.displaySidebarMenu = false;
     },
   },
 

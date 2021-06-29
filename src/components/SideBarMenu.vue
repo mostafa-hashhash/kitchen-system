@@ -2,7 +2,7 @@
   <div class="opened-menu bg-white min-h-screen absolute">
     <div>
       <img
-        @click="toggleSideBarMenu()"
+        @click="emitCloseMenuEvent()"
         src="@/assets/close.svg"
         class="menu close"
         alt="Close icon"
@@ -43,12 +43,8 @@ export default {
 	},
 
   methods: {
-    toggleSideBarMenu() {
-			this.isOpen ?
-				console.log("opened") :
-				console.log("closed")
-
-      document.querySelector(".opened-menu").style.display = "none";
+    emitCloseMenuEvent() {
+			this.$emit("closeMenuClick")
     },
 
 		notifyCategortySelection(num){
