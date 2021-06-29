@@ -15,7 +15,7 @@
       class="col-start-3 col-end-6 flex flex-row justify-center items-center min-h-screen grid grid-cols-4"
     >
       <div class="col-start-2 col-end-4">
-        <h2 class="text-3xl m-2">تسجيل الدخول</h2>
+        <h2 class="text-3xl">تسجيل الدخول</h2>
         <form>
           <div class="my-6 flex flex-col">
             <label class="p-2" for="branch">إختر الفرع</label>

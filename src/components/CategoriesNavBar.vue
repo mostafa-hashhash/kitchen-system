@@ -1,23 +1,30 @@
 <template>
-  <div class="bg-white">
-    <img
-      src="@/assets/menu.svg"
-      class="bg-green-950 p-6 inline"
-      alt="Toggle Menu Sign"
-      @click="emitOpenMenuEvent()"
-    />
-    <span class="inline-block text-xl bg-green-750 p-8 font-bold text-white">
-      {{ categoryName }}
-    </span>
+  <div class="bg-white z-10 grid grid-cols-12 justify-between">
 
-    <span class="mr-10 text-xl">قيد التحضير</span>
-    <span class="bg-green-750 text-white mx-2	px-2 py-1 rounded-full font-bold">
-      0
-    </span>
+    <div class="col-start-1 col-end-5 flex justify-between">
+      <div class="flex">
+        <img
+          src="@/assets/menu.svg"
+          class="bg-green-950 p-6 inline"
+          alt="Toggle Menu Sign"
+          @click="emitOpenMenuEvent()"
+        />
 
-    <div class="float-left mx-8 py-4 ">
+        <span class="inline-block text-xl bg-green-750 p-8 text-center font-bold text-white">
+          {{ categoryName }}
+        </span>
+      </div>
+      <div class="flex items-center justify-center">
+        <span class="text-xl">قيد التحضير</span>
+        <span class="bg-green-750 text-white mx-2	px-1 py-2 rounded-full font-bold">
+          &nbsp; 00 &nbsp;
+        </span>
+      </div>
+    </div>
+
+    <div class="col-start-10 flex justify-evenly items-center col-end-13">
       <button
-        class="refresh-btn border-2 border-green-750 mx-5 p-3 rounded-2xl shadow-xl focus:outline-none"
+        class="refresh-btn border-2 border-green-750 p-3 rounded-2xl shadow-xl focus:outline-none"
       >
         <img src="@/assets/refresh.svg" alt="Refresh Arrows" />
       </button>

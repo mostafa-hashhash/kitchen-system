@@ -22,7 +22,7 @@
       </div>
 
       <button
-        class="start-order-btn bg-green-800 text-white px-6 py-2 rounded-lg shadow-xl focus:outline-none"
+        class="start-order-btn bg-green-750 text-white px-6 py-2 rounded-lg shadow-xl focus:outline-none"
       >
         ابدأ الطلب
       </button>

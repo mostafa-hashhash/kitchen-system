@@ -6,8 +6,8 @@
     />
 
     <OngoingOrders
-      v-if="displayedOrders"
-      :orders="displayedOrders"
+      v-if="selectedCategoryOrders.length"
+      :orders="selectedCategoryOrders"
       @orderSelection="displayOrderDetails"
     />
 
@@ -18,8 +18,6 @@
       :order="selectedOrder"
       @newOrderStatus="handleNewOrderStatus"
     />
-
-    <StartOrderModal />
 
     <SideBarMenu
       @categorySelection="displayCategoryOrders"
@@ -34,7 +32,6 @@ import NavBar from "@/components/CategoriesNavBar";
 import OngoingOrders from "@/components/OngoingOrders";
 import EmptyOrders from "@/components/EmptyOrders";
 import OrderDetails from "@/components/OrderDetails";
-import StartOrderModal from "@/components/StartOrderModal";
 import SideBarMenu from "@/components/SideBarMenu";
 
 import { categories } from "@/data";
@@ -45,12 +42,11 @@ export default {
     OngoingOrders,
     OrderDetails,
     NavBar,
-    StartOrderModal,
     SideBarMenu,
   },
   data: () => {
     return {
-      displayedOrders: "",
+      selectedCategoryOrders: "",
       selectedOrder: "",
       categoryIndex: 0,
       selectedCategoryName: "",
@@ -68,7 +64,7 @@ export default {
     displayCategoryOrders(e) {
       this.categoryIndex = e?.categoryIndex || 0;
       this.selectedCategoryName = categories[this.categoryIndex].name;
-      this.displayedOrders = categories[this.categoryIndex].orders;
+      this.selectedCategoryOrders = categories[this.categoryIndex].orders;
     },
 
     handleNewOrderStatus(e) {
