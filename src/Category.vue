@@ -2,7 +2,7 @@
   <div class="static">
     <NavBar
       :categoryName="selectedCategoryName"
-      @openMenuClick="openSidebarMenu()"
+      @openMenuClick="toggleSidebarMenu()"
     />
 
     <OngoingOrders
@@ -23,7 +23,7 @@
 
     <SideBarMenu
       @categorySelection="displayCategoryOrders"
-      @closeMenuClick="closeSidebarMenu"
+      @closeMenuClick="toggleSidebarMenu()"
       v-show="displaySidebarMenu"
     />
   </div>
@@ -77,12 +77,8 @@ export default {
       ].status = e.itemStatus;
     },
 
-    openSidebarMenu() {
-      this.displaySidebarMenu = true;
-    },
-
-    closeSidebarMenu() {
-      this.displaySidebarMenu = false;
+    toggleSidebarMenu() {
+      this.displaySidebarMenu = !this.displaySidebarMenu;
     },
   },
 

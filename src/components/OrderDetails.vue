@@ -1,6 +1,13 @@
 <template>
   <div class="bg-white w-3/10 float-left min-h-screen">
-    <div class="p-5 bg-red-500 text-white">
+    <div
+      class="p-5 text-white"
+      :class="{
+        'bg-red-450': order.status == 'new',
+        'bg-yellow-450': order.status == 'preparing',
+        'bg-green-450': order.status == 'ready',
+      }"
+    >
       <p class="mb-2">
         <span class="float-rigth font-bold">{{ order.name }}</span>
         <span class="float-left">طلب رقم </span>
