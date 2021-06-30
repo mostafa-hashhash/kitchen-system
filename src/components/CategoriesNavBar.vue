@@ -38,7 +38,7 @@
           alt="Plus Sign"
         />
         ابدأ طلب جديد
-        <span class="bg-white text-green-700 rounded-full px-1 py-1 m-2 ">
+        <span class="bg-white text-green-700 rounded-full px-1 m-2 ">
           12
         </span>
       </button>

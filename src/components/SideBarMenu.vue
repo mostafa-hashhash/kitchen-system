@@ -1,5 +1,5 @@
 <template>
-  <div class="opened-menu bg-white min-h-screen absolute">
+  <div class="z-50 opened-menu bg-white min-h-screen absolute">
     <div>
       <img
         @click="emitCloseMenuEvent()"
@@ -9,7 +9,7 @@
       />
       <img
         src="@/assets/menu-logo.svg"
-        class="menu logo mt-10 ml-10 "
+        class="menu logo mt-10 ml-5 "
         alt="Logo"
       />
     </div>
@@ -78,7 +78,7 @@ h3 {
 
 .menu {
   display: inline-block;
-  padding: 10px 45px 20px 50px;
+  padding: 10px 40px 20px 30px;
 }
 
 .logout {

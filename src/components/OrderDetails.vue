@@ -9,11 +9,11 @@
       }"
     >
       <p class="mb-2">
-        <span class="float-rigth font-bold">{{ order.name }}</span>
+        <span class="font-bold">{{ order.name }}</span>
         <span class="float-left">طلب رقم </span>
       </p>
       <p>
-        <span class="float-rigth">
+        <span class="">
           <img src="@/assets/time.svg" class="inline" alt="" width="15" />
           {{ order.date }}</span
         >
@@ -25,7 +25,7 @@
       <div
         v-for="(item, itemIndex) in order.items"
         :key="item.status"
-        class="border-b border-gray-300 my-2 py-2"
+        class="flex justify-between border-b border-gray-300 my-2 py-2"
       >
         <div class="inline-block">
           <p class="my-1 py-1">
@@ -35,7 +35,7 @@
           <p class="font-light">"{{ item.note }}"</p>
         </div>
 
-        <div class="inline-block mr-8" v-if="item.status == ''">
+        <div class="inline-block mt-5 mr-8" v-if="item.status == ''">
           <img
             src="@/assets/confirm.svg"
             alt="Confirm Icon"

@@ -1,9 +1,9 @@
 <template>
-  <div class="flex flex-wrap items-start">
+  <div class="flex flex-wrap items-start m-3">
     <div
       v-for="(order, index) in orders"
       :key="order.number"
-      class="w-80 mx-3 order-wrapper"
+      class="w-80 order-wrapper"
       :class="{
           'order-1': order.status == 'new',
           'order-2': order.status == 'preparing',
