@@ -1,19 +1,23 @@
 <template>
-  <div class="static">
+  <div class="grid grid-cols-12">
+
     <NavBar
+      class="col-start-1 col-end-13"
       :categoryName="selectedCategoryName"
       @openMenuClick="toggleSidebarMenu()"
     />
 
     <OngoingOrders
+      class="col-start-1 col-end-8"
       v-if="selectedCategoryOrders.length"
       :orders="selectedCategoryOrders"
       @orderSelection="displayOrderDetails"
     />
-
-    <EmptyOrders v-else />
+  
+    <EmptyOrders class="col-start-1 col-end-13" v-else />
 
     <OrderDetails
+      class="col-start-9 col-end-13"
       v-show="selectedOrder"
       :order="selectedOrder"
       @newOrderStatus="handleNewOrderStatus"

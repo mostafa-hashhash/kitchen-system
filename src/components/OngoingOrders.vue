@@ -1,14 +1,19 @@
 <template>
-  <div class="w-3/5 float-rigth h-80 border inline-block mt-2">
+  <div class="flex flex-wrap items-start">
     <div
       v-for="(order, index) in orders"
       :key="order.number"
       class="w-80 mx-3 order-wrapper"
+      :class="{
+          'order-1': order.status == 'new',
+          'order-2': order.status == 'preparing',
+          'order-3': order.status == 'ready',
+        }"
       :id="'id' + index"
       @click="notifyOrderSelection(order, index)"
     >
       <div
-        class="m-2 text-white p-4 rounded-lg"
+        class="m-2 text-white p-3 rounded-lg"
         :class="{
           'bg-red-450': order.status == 'new',
           'bg-yellow-450': order.status == 'preparing',

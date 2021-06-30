@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-white w-3/10 float-left min-h-screen">
+  <div class="bg-white min-h-screen">
     <div
-      class="p-5 text-white"
+      class="p-4 text-white"
       :class="{
         'bg-red-450': order.status == 'new',
         'bg-yellow-450': order.status == 'preparing',

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white z-10 grid grid-cols-12 justify-between">
+  <div class="bg-white z-40 grid grid-cols-12 justify-between">
 
     <div class="col-start-1 col-end-5 flex justify-between">
       <div class="flex">
