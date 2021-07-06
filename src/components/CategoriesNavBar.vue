@@ -1,22 +1,25 @@
 <template>
-  <div class="bg-white z-40 grid grid-cols-12 justify-between">
-
+  <div class="bg-white z-30 grid grid-cols-12 justify-between">
     <div class="col-start-1 col-end-5 flex justify-between">
       <div class="flex">
         <img
           src="@/assets/menu.svg"
-          class="bg-green-950 p-6 inline"
+          class="bg-green-950 p-5 inline cursor-pointer"
           alt="Toggle Menu Sign"
           @click="emitOpenMenuEvent()"
         />
 
-        <span class="inline-block text-xl bg-green-750 p-8 text-center font-bold text-white">
+        <span
+          class="inline-block text-xl bg-green-750 p-6 text-center font-bold text-white"
+        >
           {{ categoryName }}
         </span>
       </div>
       <div class="flex items-center justify-center">
         <span class="text-xl">قيد التحضير</span>
-        <span class="bg-green-750 text-white mx-2	px-1 py-2 rounded-full font-bold">
+        <span
+          class="bg-green-750 text-white mx-2	px-1 py-2 rounded-full font-bold"
+        >
           &nbsp; 00 &nbsp;
         </span>
       </div>
@@ -24,13 +27,14 @@
 
     <div class="col-start-10 flex justify-evenly items-center col-end-13">
       <button
-        class="refresh-btn border-2 border-green-750 p-3 rounded-2xl shadow-xl focus:outline-none"
+        class="refresh-btn border-2 border-green-750 p-2 rounded-2xl shadow-xl focus:outline-none"
       >
         <img src="@/assets/refresh.svg" alt="Refresh Arrows" />
       </button>
 
       <button
-        class="new-order-btn bg-green-750 text-white text-lg px-6 py-3 rounded-xl shadow-xl focus:outline-none"
+        class="new-order-btn bg-green-750 text-white px-5 py-3 text-md rounded-xl shadow-xl focus:outline-none"
+        @click="emitNewOrderEvent()"
       >
         <img
           src="@/assets/plus-order.svg"
@@ -38,7 +42,7 @@
           alt="Plus Sign"
         />
         ابدأ طلب جديد
-        <span class="bg-white text-green-700 rounded-full px-1 m-2 ">
+        <span class="bg-white text-green-700 rounded-full px-1 m-2">
           12
         </span>
       </button>
@@ -50,15 +54,18 @@
 export default {
   props: ["categoryName"],
   methods: {
-    emitOpenMenuEvent(){
-      this.$emit("openMenuClick")
-    }
-  }
-}
+    emitOpenMenuEvent() {
+      this.$emit("openMenuClick");
+    },
+
+    emitNewOrderEvent() {
+      this.$emit("newOrderClick");
+    },
+  },
+};
 </script>
 
 <style>
-
 .mark {
   margin: auto;
 }

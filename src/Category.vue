@@ -1,10 +1,10 @@
 <template>
   <div class="grid grid-cols-12">
-
     <NavBar
       class="col-start-1 col-end-13"
       :categoryName="selectedCategoryName"
       @openMenuClick="toggleSidebarMenu()"
+      @newOrderClick="openNewOrderModal()"
     />
 
     <OngoingOrders
@@ -13,7 +13,7 @@
       :orders="selectedCategoryOrders"
       @orderSelection="displayOrderDetails"
     />
-  
+
     <EmptyOrders class="col-start-1 col-end-13" v-else />
 
     <OrderDetails
@@ -28,6 +28,12 @@
       @closeMenuClick="toggleSidebarMenu()"
       v-show="displaySidebarMenu"
     />
+
+    <StartOrderModal
+      class="col-start-1 col-end-13"
+      @closeModalClick="closeNewOrderModal()"
+      v-show="displayNewOrderModal"
+    />
   </div>
 </template>
 
@@ -37,6 +43,7 @@ import OngoingOrders from "@/components/OngoingOrders";
 import EmptyOrders from "@/components/EmptyOrders";
 import OrderDetails from "@/components/OrderDetails";
 import SideBarMenu from "@/components/SideBarMenu";
+import StartOrderModal from "@/components/StartOrderModal";
 
 import { categories } from "@/data";
 
@@ -47,6 +54,7 @@ export default {
     OrderDetails,
     NavBar,
     SideBarMenu,
+    StartOrderModal,
   },
   data: () => {
     return {
@@ -56,6 +64,7 @@ export default {
       selectedCategoryName: "",
       selectedOrderIndex: "",
       displaySidebarMenu: false,
+      displayNewOrderModal: false,
     };
   },
 
@@ -79,6 +88,14 @@ export default {
 
     toggleSidebarMenu() {
       this.displaySidebarMenu = !this.displaySidebarMenu;
+    },
+
+    openNewOrderModal() {
+      this.displayNewOrderModal = true;
+    },
+
+    closeNewOrderModal() {
+      this.displayNewOrderModal = false;
     },
   },
 

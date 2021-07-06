@@ -1,15 +1,15 @@
 <template>
-  <div class="z-50 opened-menu bg-white min-h-screen absolute">
+  <div class="z-40 opened-menu bg-white min-h-screen absolute">
     <div>
       <img
         @click="emitCloseMenuEvent()"
         src="@/assets/close.svg"
-        class="menu close"
+        class="menu cursor-pointer"
         alt="Close icon"
       />
       <img
         src="@/assets/menu-logo.svg"
-        class="menu logo mt-10 ml-5 "
+        class="menu logo mt-5 ml-5 "
         alt="Logo"
       />
     </div>
