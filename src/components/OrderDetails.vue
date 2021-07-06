@@ -13,11 +13,10 @@
         <span class="float-left">طلب رقم </span>
       </p>
       <p>
-        <span class="">
-          <img src="@/assets/time.svg" class="inline" alt="" width="15" />
+        <span class="date">
           {{ order.date }}</span
         >
-        <span class="float-left font-bold">#{{ order.number }}</span>
+        <span class="float-left font-bold number">{{ order.number }}</span>
       </p>
     </div>
 

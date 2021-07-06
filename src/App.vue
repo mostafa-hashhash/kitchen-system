@@ -27,4 +27,16 @@ body {
   direction: rtl;
   font-family: 'Cairo';
 }
+
+.date::before {
+  content: " ";
+  float: right;
+  background: url("assets/time.svg") center no-repeat;
+  padding: 12px 10px;
+  margin-left: 5px;
+}
+
+.number::before {
+  content: "#";
+}
 </style>

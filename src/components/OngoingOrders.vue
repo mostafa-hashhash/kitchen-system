@@ -5,10 +5,10 @@
       :key="order.number"
       class="w-80 order-wrapper"
       :class="{
-          'order-1': order.status == 'new',
-          'order-2': order.status == 'preparing',
-          'order-3': order.status == 'ready',
-        }"
+        'order-1': order.status == 'new',
+        'order-2': order.status == 'preparing',
+        'order-3': order.status == 'ready',
+      }"
       :id="'id' + index"
       @click="notifyOrderSelection(order, index)"
     >
@@ -21,14 +21,11 @@
         }"
       >
         <p class="font-bold mb-2">
-          <span class="float-rigth">{{ order.name }}</span>
-          <span class="float-left">#{{ order.number }} </span>
+          <span>{{ order.name }}</span>
+          <span class="float-left number">{{ order.number }} </span>
         </p>
         <p>
-          <span class="float-rigth">
-            <img src="@/assets/time.svg" class="inline" alt="" width="15" />
-            {{ order.date }}</span
-          >
+          <span class="date"> {{ order.date }}</span>
           <span class="float-left">{{ order.items.length }} منتجات</span>
         </p>
       </div>
@@ -76,5 +73,6 @@ export default {
   border: 5px solid #84c559;
   border-radius: 10px;
 }
+
 
 </style>

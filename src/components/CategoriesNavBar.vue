@@ -27,7 +27,7 @@
 
     <div class="col-start-10 flex justify-evenly items-center col-end-13">
       <button
-        class="refresh-btn border-2 border-green-750 p-2 rounded-2xl shadow-xl focus:outline-none"
+        class="refresh-btn border-2 border-green-750 p-2 rounded-xl shadow-xl focus:outline-none"
       >
         <img src="@/assets/refresh.svg" alt="Refresh Arrows" />
       </button>
