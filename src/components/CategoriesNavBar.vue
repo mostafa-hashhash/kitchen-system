@@ -1,32 +1,48 @@
 <template>
-  <div class="bg-white">
-    <img
-      src="../assets/menu.svg"
-      class="bg-green-800 p-6 inline"
-      alt="Toggle Menu Sign"
-    />
-    <span class="inline-block text-xl bg-green-700 p-8 font-bold text-white">
-      قسم الجبن
-    </span>
+  <div class="bg-white z-30 grid grid-cols-12 justify-between">
+    <div class="col-start-1 col-end-5 flex justify-between">
+      <div class="flex">
+        <img
+          src="@/assets/menu.svg"
+          class="bg-green-950 p-5 inline cursor-pointer"
+          alt="Toggle Menu Sign"
+          @click="emitOpenMenuEvent()"
+        />
 
-    <span class="mr-10 text-xl">قيد التحضير</span>
-    <span class="bg-green-700 text-white mx-2	px-2 py-1 rounded-full font-bold">
-      0
-    </span>
+        <span
+          class="inline-block text-xl bg-green-750 p-6 text-center font-bold text-white"
+        >
+          {{ categoryName }}
+        </span>
+      </div>
+      <div class="flex items-center justify-center">
+        <span class="text-xl">قيد التحضير</span>
+        <span
+          class="bg-green-750 text-white mx-2	px-1 py-2 rounded-full font-bold"
+        >
+          &nbsp; 00 &nbsp;
+        </span>
+      </div>
+    </div>
 
-    <div class="float-left mx-8 py-4 ">
+    <div class="col-start-10 flex justify-evenly items-center col-end-13">
       <button
-        class="border-2 border-green-700 mx-5 p-3 rounded-2xl outline-none"
+        class="refresh-btn border-2 border-green-750 p-2 rounded-2xl shadow-xl focus:outline-none"
       >
-        <img src="../assets/refresh.svg" alt="Refresh Arrows" />
+        <img src="@/assets/refresh.svg" alt="Refresh Arrows" />
       </button>
 
       <button
-        class=" bg-green-700 text-white text-lg px-6 py-3 rounded-xl outline-none"
+        class="new-order-btn bg-green-750 text-white px-5 py-3 text-md rounded-xl shadow-xl focus:outline-none"
+        @click="emitNewOrderEvent()"
       >
-        <img src="../assets/plus-order.svg" class="inline ml-3" alt="Plus Sign" />
+        <img
+          src="@/assets/plus-order.svg"
+          class="inline ml-3"
+          alt="Plus Sign"
+        />
         ابدأ طلب جديد
-        <span class="bg-white text-green-700 rounded-full px-1 py-1 m-2">
+        <span class="bg-white text-green-700 rounded-full px-1 m-2">
           12
         </span>
       </button>
@@ -34,16 +50,34 @@
   </div>
 </template>
 
+<script>
+export default {
+  props: ["categoryName"],
+  methods: {
+    emitOpenMenuEvent() {
+      this.$emit("openMenuClick");
+    },
+
+    emitNewOrderEvent() {
+      this.$emit("newOrderClick");
+    },
+  },
+};
+</script>
+
 <style>
-body {
-  background-color: #e5e5e5;
-}
-
-button:active {
-  outline: none;
-}
-
 .mark {
   margin: auto;
+}
+
+.new-order-btn:active {
+  box-shadow: none;
+  outline: none;
+  background-color: #005931;
+}
+
+.refresh-btn:active {
+  box-shadow: none;
+  outline: none;
 }
 </style>

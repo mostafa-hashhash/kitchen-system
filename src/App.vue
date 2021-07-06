@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Nav from "./Category";
+import Nav from "@/Category";
 
 export default {
   name: "App",
@@ -14,14 +14,17 @@ export default {
 </script>
 
 <style>
-html,
-body {
-  padding: 0px;
-  margin: 0px;
-  widows: 100%;
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+
+html{
   height: 100%;
+}
+
+body {
+  min-height: 100%;
 }
 * {
   direction: rtl;
+  font-family: 'Cairo';
 }
 </style>

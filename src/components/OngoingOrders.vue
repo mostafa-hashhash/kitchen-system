@@ -1,33 +1,80 @@
 <template>
-  <div class="w-2/5 float-rigth inline-block">
+  <div class="flex flex-wrap items-start m-3">
     <div
-      v-for="order in orders"
+      v-for="(order, index) in orders"
       :key="order.number"
-      class="w-60 m-3 rounded-lg p-2 bg-red-500 text-white"
-      @click="notifySelection(order)"
+      class="w-80 order-wrapper"
+      :class="{
+          'order-1': order.status == 'new',
+          'order-2': order.status == 'preparing',
+          'order-3': order.status == 'ready',
+        }"
+      :id="'id' + index"
+      @click="notifyOrderSelection(order, index)"
     >
-      <p class="font-bold">
-        <span class="float-rigth">{{ order.name }}</span>
-        <span class="float-left">#{{ order.number }} </span>
-      </p>
-      <p>
-        <span class="float-rigth">{{ order.date }}</span>
-        <span class="float-left">{{ order.items.length }}</span>
-      </p>
+      <div
+        class="m-2 text-white p-3 rounded-lg"
+        :class="{
+          'bg-red-450': order.status == 'new',
+          'bg-yellow-450': order.status == 'preparing',
+          'bg-green-450': order.status == 'ready',
+        }"
+      >
+        <p class="font-bold mb-2">
+          <span class="float-rigth">{{ order.name }}</span>
+          <span class="float-left">#{{ order.number }} </span>
+        </p>
+        <p>
+          <span class="float-rigth">
+            <img src="@/assets/time.svg" class="inline" alt="" width="15" />
+            {{ order.date }}</span
+          >
+          <span class="float-left">{{ order.items.length }} منتجات</span>
+        </p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data: () => {
+    return {
+      previousId: "",
+      currentId: "",
+    };
+  },
+
   props: ["orders"],
 
   methods: {
-    notifySelection(order) {
-      this.$emit("orderSelection", { order: order });
+    notifyOrderSelection(order, index) {
+      this.previousId = this.currentId;
+
+      if (this.previousId)
+        document
+          .querySelector(this.previousId)
+          .classList.remove("selected-order-wrapper");
+
+      this.currentId = "#id" + index;
+      document
+        .querySelector(this.currentId)
+        .classList.add("selected-order-wrapper");
+
+      this.$emit("orderSelection", { order: order, orderIndex: index });
     },
   },
 };
 </script>
 
-<style></style>
+<style>
+.order-wrapper {
+  border: 5px solid #e5e5e5;
+}
+
+.selected-order-wrapper {
+  border: 5px solid #84c559;
+  border-radius: 10px;
+}
+
+</style>
