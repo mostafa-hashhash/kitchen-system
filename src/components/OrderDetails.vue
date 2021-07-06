@@ -85,6 +85,7 @@
 
       <button
         class=" finish-order-btn bg-green-750 py-3 px-8 w-3/4 mx-auto block text-white my-4 shadow-xl focus:outline-none rounded-lg"
+        @click="emitFinishOrderEvent()"
       >
         إنهاء الطلب
       </button>
@@ -105,6 +106,10 @@ export default {
 
       this.$forceUpdate();
     },
+
+    emitFinishOrderEvent(){
+      this.$emit("finishOrderClick")
+    }
   },
 };
 </script>

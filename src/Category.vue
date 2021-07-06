@@ -21,6 +21,7 @@
       v-show="selectedOrder"
       :order="selectedOrder"
       @newOrderStatus="handleNewOrderStatus"
+      @finishOrderClick="openAlertModal()"
     />
 
     <SideBarMenu
@@ -34,6 +35,12 @@
       @closeModalClick="closeNewOrderModal()"
       v-show="displayNewOrderModal"
     />
+
+    <Alert
+      class="col-start-1 col-end-13"
+      @closeAlertClick="closeAlertModal()"
+      v-show="displayAlertModal"
+    />
   </div>
 </template>
 
@@ -44,6 +51,7 @@ import EmptyOrders from "@/components/EmptyOrders";
 import OrderDetails from "@/components/OrderDetails";
 import SideBarMenu from "@/components/SideBarMenu";
 import StartOrderModal from "@/components/StartOrderModal";
+import Alert from "@/components/Alert"
 
 import { categories } from "@/data";
 
@@ -55,6 +63,7 @@ export default {
     NavBar,
     SideBarMenu,
     StartOrderModal,
+    Alert
   },
   data: () => {
     return {
@@ -65,6 +74,7 @@ export default {
       selectedOrderIndex: "",
       displaySidebarMenu: false,
       displayNewOrderModal: false,
+      displayAlertModal: false
     };
   },
 
@@ -97,6 +107,14 @@ export default {
     closeNewOrderModal() {
       this.displayNewOrderModal = false;
     },
+
+    openAlertModal(){
+      this.displayAlertModal = true
+    },
+
+    closeAlertModal(){
+      this.displayAlertModal = false
+    }
   },
 
   mounted: function() {
