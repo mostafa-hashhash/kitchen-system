@@ -65,8 +65,8 @@ ul li {
 }
 
 ul li:hover {
-  border-right: 5px solid green;
-  padding: 10px 45px;
+  border-right: 7px solid green;
+  padding: 10px 43px;
   font-weight: bold;
 	cursor: pointer !important;
 }
