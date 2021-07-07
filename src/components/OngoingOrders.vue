@@ -13,20 +13,20 @@
       @click="notifyOrderSelection(order, index)"
     >
       <div
-        class="m-2 text-white p-3 rounded-lg"
+        class="flex justify-between items-center m-2 text-white p-3 rounded-lg"
         :class="{
           'bg-red-450': order.status == 'new',
           'bg-yellow-450': order.status == 'preparing',
           'bg-green-450': order.status == 'ready',
         }"
       >
-        <p class="font-bold mb-2">
-          <span>{{ order.name }}</span>
-          <span class="float-left number">{{ order.number }} </span>
-        </p>
-        <p>
+        <p class="font-bold leading-loose	">
+          <span>{{ order.name }}</span> <br>
           <span class="date"> {{ order.date }}</span>
-          <span class="float-left">{{ order.items.length }} منتجات</span>
+        </p>
+        <p class="leading-loose">
+          <span class="number">{{ order.number }}</span><br>
+          <span>{{ order.items.length }} منتجات</span>
         </p>
       </div>
     </div>

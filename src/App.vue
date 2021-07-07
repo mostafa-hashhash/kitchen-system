@@ -32,7 +32,7 @@ body {
   content: " ";
   float: right;
   background: url("assets/time.svg") center no-repeat;
-  padding: 12px 10px;
+  padding: 16px 10px;
   margin-left: 5px;
 }
 

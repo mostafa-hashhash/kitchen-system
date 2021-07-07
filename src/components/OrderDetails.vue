@@ -2,20 +2,20 @@
   <div class="flex justify-between flex-col bg-white min-h-screen">
     <div>
       <div
-        class="p-4 text-white"
+        class="order-details-header flex justify-between p-4 text-white"
         :class="{
           'bg-red-450': order.status == 'new',
           'bg-yellow-450': order.status == 'preparing',
           'bg-green-450': order.status == 'ready',
         }"
       >
-        <p class="mb-2">
-          <span class="font-bold">{{ order.name }}</span>
-          <span class="float-left">طلب رقم </span>
+        <p>
+          <span class="font-bold">{{ order.name }}</span> <br>
+          <span class="date"> {{ order.date }}</span>
         </p>
         <p>
-          <span class="date"> {{ order.date }}</span>
-          <span class="float-left font-bold number">{{ order.number }}</span>
+          <span>طلب رقم </span> <br>
+          <span class="font-bold number">{{ order.number }}</span>
         </p>
       </div>
 
@@ -133,8 +133,12 @@ export default {
 };
 </script>
 
-<style>
+<style >
 .finish-order-btn:active {
   box-shadow: none;
+}
+
+.order-details-header > p {
+  line-height: 2;
 }
 </style>
