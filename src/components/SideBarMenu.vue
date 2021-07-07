@@ -65,10 +65,10 @@ ul li {
 }
 
 ul li:hover {
-  border-right: 7px solid green;
+  border-right: 7px solid theme('colors.green.750');
   padding: 10px 43px;
   font-weight: bold;
-	cursor: pointer !important;
+	cursor: pointer;
 }
 
 h3 {
@@ -82,6 +82,10 @@ h3 {
 }
 
 .logout {
-  color: #d0021b;
+  color: theme('colors.red.650');
+}
+
+div:last-of-type > ul > li:last-of-type:hover{
+  border-right: 7px solid theme('colors.red.650');
 }
 </style>
