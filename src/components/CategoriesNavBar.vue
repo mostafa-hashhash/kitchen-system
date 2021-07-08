@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white z-30 grid grid-cols-12 justify-between">
+  <div class="bg-white grid grid-cols-12 justify-between">
     <div class="col-start-1 col-end-5 flex justify-between">
       <div class="flex">
         <img
@@ -37,7 +37,7 @@
         @click="emitNewOrderEvent()"
       >
         <span class="new-order-content"> ابدأ طلب جديد </span>
-        <span class="bg-white text-green-700 rounded-full px-1 m-2"> 12 </span>
+        <span class="bg-white text-green-700 rounded-full mr-2 font-bold"> &nbsp; 12 &nbsp; </span>
       </button>
     </div>
   </div>

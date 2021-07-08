@@ -4,11 +4,6 @@
       v-for="(order, index) in orders"
       :key="order.number"
       class="w-80 order-wrapper"
-      :class="{
-        'order-1': order.status == 'new',
-        'order-2': order.status == 'preparing',
-        'order-3': order.status == 'ready',
-      }"
       :id="'id' + index"
       @click="notifyOrderSelection(order, index)"
     >

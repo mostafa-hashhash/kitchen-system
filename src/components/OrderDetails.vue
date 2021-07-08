@@ -2,7 +2,7 @@
   <div class="flex justify-between flex-col bg-white min-h-screen">
     <div>
       <div
-        class="order-details-header flex justify-between p-4 text-white"
+        class="order-details-header flex justify-between py-3 px-5 text-white"
         :class="{
           'bg-red-450': order.status == 'new',
           'bg-yellow-450': order.status == 'preparing',
@@ -23,10 +23,10 @@
         <div
           v-for="(item, itemIndex) in order.items"
           :key="item.status"
-          class="flex justify-between items-center border-b border-gray-300 my-2 py-2"
+          class="flex justify-between items-center border-b border-gray-300 py-3"
         >
-          <div>
-            <p class="my-1 py-1">
+          <div class="leading-loose">
+            <p>
               <b>{{ item.quantity }} {{ item.measurmentUnit }}</b>
               - {{ item.type }}
             </p>
