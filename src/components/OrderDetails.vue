@@ -141,4 +141,8 @@ export default {
 .order-details-header > p {
   line-height: 2;
 }
+
+.order-details-header {
+  box-shadow: inset 0  3px 20px #fff;
+}
 </style>
