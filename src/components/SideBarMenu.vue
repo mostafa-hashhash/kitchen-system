@@ -3,12 +3,12 @@
     <div>
       <img
         @click="emitCloseMenuEvent()"
-        src="@/assets/close.svg"
+        src="@/assets/sprite/svg/close.svg"
         class="menu cursor-pointer"
         alt="Close icon"
       />
       <img
-        src="@/assets/menu-logo.svg"
+        src="@/assets/sprite/svg/menu-logo.svg"
         class="menu logo mt-5 ml-5 "
         alt="Logo"
       />
@@ -17,7 +17,7 @@
     <div>
       <h3 class="mt-5">الأقسام</h3>
       <ul>
-        <li @click="notifyCategortySelection(0)" ><a> قسم الجبن</a></li>
+        <li @click="notifyCategortySelection(0)"><a> قسم الجبن</a></li>
         <li @click="notifyCategortySelection(1)"><a> قسم اللحوم</a></li>
         <li @click="notifyCategortySelection(2)"><a> قسم الأسماك</a></li>
       </ul>
@@ -36,20 +36,20 @@
 
 <script>
 export default {
-	data: ()=>{
-		return{
-			isOpen: false
-		}
-	},
+  data: () => {
+    return {
+      isOpen: false,
+    };
+  },
 
   methods: {
     emitCloseMenuEvent() {
-			this.$emit("closeMenuClick")
+      this.$emit("closeMenuClick");
     },
 
-		notifyCategortySelection(num){
-			this.$emit('categorySelection',{ categoryIndex: num})
-		}
+    notifyCategortySelection(num) {
+      this.$emit("categorySelection", { categoryIndex: num });
+    },
   },
 };
 </script>
@@ -65,10 +65,10 @@ ul li {
 }
 
 ul li:hover {
-  border-right: 7px solid theme('colors.green.750');
+  border-right: 7px solid theme("colors.green.750");
   padding: 10px 43px;
   font-weight: bold;
-	cursor: pointer;
+  cursor: pointer;
 }
 
 h3 {
@@ -82,10 +82,10 @@ h3 {
 }
 
 .logout {
-  color: theme('colors.red.650');
+  color: theme("colors.red.650");
 }
 
-div:last-of-type > ul > li:last-of-type:hover{
-  border-right: 7px solid theme('colors.red.650');
+div:last-of-type > ul > li:last-of-type:hover {
+  border-right: 7px solid theme("colors.red.650");
 }
 </style>

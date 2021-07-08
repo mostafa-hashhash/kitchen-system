@@ -2,14 +2,18 @@
   <div class="flex justify-center items-center z-50 absolute w-full h-full">
     <div class="bg-white card p-4 mx-auto ">
       <img
-        src="@/assets/StartOrderModalClosingIcon.svg"
+        src="@/assets/sprite/svg/StartOrderModalClosingIcon.svg"
         class="cursor-pointer absolute"
         @click="emitCloseModalEvent()"
-        alt=""
+        alt="closing icon"
       />
 
       <div class="py-6 px-10 mx-10">
-        <img src="@/assets/card.svg" alt="ID Card Icon" class="mx-auto" />
+        <img
+          src="@/assets/sprite/svg/card.svg"
+          alt="ID Card Icon"
+          class="mx-auto"
+        />
 
         <p class="my-4 text-center">قم بمسح الكارت الخاص بك</p>
         <span class="m-4 bolck or">أو</span>
@@ -67,7 +71,7 @@ export default {
   width: 100%;
   margin: 10px;
   padding: 5px;
-  background: url("../assets/bar.svg") center no-repeat;
+  background: url("../assets/sprite/svg/bar.svg") center no-repeat;
 }
 
 /* .card {

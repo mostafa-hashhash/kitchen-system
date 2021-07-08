@@ -14,9 +14,9 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo&display=swap");
 
-html{
+html {
   height: 100%;
 }
 
@@ -25,13 +25,13 @@ body {
 }
 * {
   direction: rtl;
-  font-family: 'Cairo';
+  font-family: "Cairo";
 }
 
 .date::before {
   content: " ";
   float: right;
-  background: url("assets/time.svg") center no-repeat;
+  background: url("assets/sprite/svg/time.svg") center no-repeat;
   padding: 16px 10px;
   margin-left: 5px;
 }

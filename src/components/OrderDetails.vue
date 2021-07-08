@@ -10,11 +10,11 @@
         }"
       >
         <p>
-          <span class="font-bold">{{ order.name }}</span> <br>
+          <span class="font-bold">{{ order.name }}</span> <br />
           <span class="date"> {{ order.date }}</span>
         </p>
         <p>
-          <span>طلب رقم </span> <br>
+          <span>طلب رقم </span> <br />
           <span class="font-bold number">{{ order.number }}</span>
         </p>
       </div>
@@ -35,12 +35,12 @@
 
           <div v-if="item.status == ''" class="flex justify-around w-1/4">
             <img
-              src="@/assets/confirm.svg"
+              src="@/assets/sprite/svg/confirm.svg"
               alt="Confirm Icon"
               @click="changeItemStatus(itemIndex, 'confirmed')"
             />
             <img
-              src="@/assets/cancel.svg"
+              src="@/assets/sprite/svg/cancel.svg"
               alt="Cancel Icon"
               @click="changeItemStatus(itemIndex, 'cancelled')"
             />
@@ -50,19 +50,19 @@
             v-else-if="item.status == 'confirmed'"
             class="flex justify-around w-1/4"
           >
-            <img src="@/assets/confirm-active.svg" />
+            <img src="@/assets/sprite/svg/confirm-active.svg" />
             <img
-              src="@/assets/cancel.svg"
+              src="@/assets/sprite/svg/cancel.svg"
               @click="changeItemStatus(itemIndex, 'cancelled')"
             />
           </div>
 
           <div v-else class="flex justify-around w-1/4">
             <img
-              src="@/assets/confirm.svg"
+              src="@/assets/sprite/svg/confirm.svg"
               @click="changeItemStatus(itemIndex, 'confirmed')"
             />
-            <img src="@/assets/cancel-active.svg" />
+            <img src="@/assets/sprite/svg/cancel-active.svg" />
           </div>
         </div>
       </div>
@@ -76,14 +76,14 @@
           class="flex justify-between items-center w-2/5 border rounded-lg p-2 "
         >
           <img
-            src="@/assets/plus-print.svg"
+            src="@/assets/sprite/svg/plus-print.svg"
             alt="plus icon"
             class="cursor-pointer"
             @click="addToPrintCount(1)"
           />
           <span class="text-lg"> {{ printCount }} </span>
           <img
-            src="@/assets/minus.svg"
+            src="@/assets/sprite/svg/minus.svg"
             alt="minus icon"
             class="cursor-pointer"
             @click="addToPrintCount(-1)"
@@ -133,7 +133,7 @@ export default {
 };
 </script>
 
-<style >
+<style>
 .finish-order-btn:active {
   box-shadow: none;
 }

@@ -3,7 +3,7 @@
     <div class="col-start-1 col-end-5 flex justify-between">
       <div class="flex">
         <img
-          src="@/assets/menu.svg"
+          src="@/assets/sprite/svg/menu.svg"
           class="bg-green-950 p-5 inline cursor-pointer"
           alt="Toggle Menu Sign"
           @click="emitOpenMenuEvent()"
@@ -29,7 +29,7 @@
       <button
         class="refresh-btn border-2 border-green-750 p-2 rounded-lg shadow-xl focus:outline-none"
       >
-        <img src="@/assets/refresh.svg" alt="Refresh Arrows" />
+        <img src="@/assets/sprite/svg/refresh.svg" alt="Refresh Arrows" />
       </button>
 
       <button
@@ -76,7 +76,7 @@ export default {
 
 .new-order-content::before {
   content: " ";
-  background: url("../assets/plus-order.svg") center no-repeat;
+  background: url("../assets/sprite/svg/plus-order.svg") center no-repeat;
   padding: 10px;
   margin: 5px;
 }
