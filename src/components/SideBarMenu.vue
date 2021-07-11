@@ -1,5 +1,5 @@
 <template>
-  <div class="z-40 opened-menu bg-white min-h-screen absolute">
+  <div class="z-40 opened-menu bg-white min-h-screen">
     <div>
       <img
         @click="emitCloseMenuEvent()"

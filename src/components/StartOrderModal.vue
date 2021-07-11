@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute w-full h-full">
+  <div class="absolute top-0 w-full h-full">
     <div class="absolute w-full h-full bg-black opacity-50"></div>
     <div class="card bg-white p-4 mx-auto z-50 fixed">
       <img

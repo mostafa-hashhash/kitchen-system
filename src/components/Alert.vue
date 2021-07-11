@@ -1,8 +1,8 @@
 <template>
   <div
-    class="absolute h-full w-full z-50 flex justify-center items-start pt-10"
+    class="absolute top-0 h-full w-full z-50 flex justify-center items-start pt-10"
   >
-    <div class="bg-green-450 flex p-4">
+    <div class="bg-green-450 flex items-center p-4">
       <img
         src="@/assets/sprite/svg/successfulAlertIcon.svg"
         alt="success icon"

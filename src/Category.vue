@@ -1,47 +1,49 @@
 <template>
-  <div class="grid grid-cols-12">
-    <NavBar
-      class="col-start-1 col-end-13"
-      :categoryName="selectedCategoryName"
-      @openMenuClick="toggleSidebarMenu()"
-      @newOrderClick="openNewOrderModal()"
-    />
+  <NavBar
+    class="w-full fixed mb-10"
+    :categoryName="selectedCategoryName"
+    @openMenuClick="openSidebarMenu()"
+    @newOrderClick="openNewOrderModal()"
+  />
 
-    <OngoingOrders
-      class="col-start-1 col-end-8"
-      v-if="selectedCategoryOrders.length"
-      :orders="selectedCategoryOrders"
-      @orderSelection="displayOrderDetails"
-    />
+  <div class="inline-block mt-10 pt-9">
+    <div v-if="selectedCategoryOrders.length">
+      <OngoingOrders
+        class="w-3/5 inline float-right"
+        :orders="selectedCategoryOrders"
+        @orderSelection="displayOrderDetails"
+      />
 
-    <EmptyOrders class="col-start-1 col-end-13" v-else />
+      <OrderDetails
+        class="inline w-1/3 float-left"
+        v-show="selectedOrder"
+        :order="selectedOrder"
+        @newOrderStatus="handleNewOrderStatus"
+        @finishOrderClick="openAlertModal()"
+      />
+    </div>
 
-    <OrderDetails
-      class="col-start-9 col-end-13"
-      v-show="selectedOrder"
-      :order="selectedOrder"
-      @newOrderStatus="handleNewOrderStatus"
-      @finishOrderClick="openAlertModal()"
-    />
-
-    <SideBarMenu
-      @categorySelection="displayCategoryOrders"
-      @closeMenuClick="toggleSidebarMenu()"
-      v-show="displaySidebarMenu"
-    />
-
-    <StartOrderModal
-      class="col-start-1 col-end-13"
-      @closeModalClick="closeNewOrderModal()"
-      v-show="displayNewOrderModal"
-    />
-
-    <Alert
-      class="col-start-1 col-end-13"
-      @closeAlertClick="closeAlertModal()"
-      v-show="displayAlertModal"
-    />
+    <EmptyOrders v-else />
   </div>
+
+  <SideBarMenu
+    class="fixed top-0"
+    @categorySelection="displayCategoryOrders"
+    @closeMenuClick="closeSidebarMenu()"
+    v-show="displaySidebarMenu"
+  />
+
+  <StartOrderModal
+    class="w-full"
+    @closeModalClick="closeNewOrderModal()"
+    v-show="displayNewOrderModal"
+  />
+
+  <Alert
+    class="w-full"
+    @closeAlertClick="closeAlertModal()"
+    v-show="displayAlertModal"
+  />
 </template>
 
 <script>
@@ -51,7 +53,7 @@ import EmptyOrders from "@/components/EmptyOrders";
 import OrderDetails from "@/components/OrderDetails";
 import SideBarMenu from "@/components/SideBarMenu";
 import StartOrderModal from "@/components/StartOrderModal";
-import Alert from "@/components/Alert"
+import Alert from "@/components/Alert";
 
 import { categories } from "@/data";
 
@@ -63,7 +65,7 @@ export default {
     NavBar,
     SideBarMenu,
     StartOrderModal,
-    Alert
+    Alert,
   },
   data: () => {
     return {
@@ -74,7 +76,7 @@ export default {
       selectedOrderIndex: "",
       displaySidebarMenu: false,
       displayNewOrderModal: false,
-      displayAlertModal: false
+      displayAlertModal: false,
     };
   },
 
@@ -96,8 +98,12 @@ export default {
       ].status = e.itemStatus;
     },
 
-    toggleSidebarMenu() {
-      this.displaySidebarMenu = !this.displaySidebarMenu;
+    openSidebarMenu() {
+      this.displaySidebarMenu = true;
+    },
+
+    closeSidebarMenu() {
+      this.displaySidebarMenu = false;
     },
 
     openNewOrderModal() {
@@ -108,13 +114,13 @@ export default {
       this.displayNewOrderModal = false;
     },
 
-    openAlertModal(){
-      this.displayAlertModal = true
+    openAlertModal() {
+      this.displayAlertModal = true;
     },
 
-    closeAlertModal(){
-      this.displayAlertModal = false
-    }
+    closeAlertModal() {
+      this.displayAlertModal = false;
+    },
   },
 
   mounted: function() {

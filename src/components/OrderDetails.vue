@@ -1,5 +1,5 @@
 <template>
-  <div class="order-details-component flex justify-between flex-col bg-white min-h-screen">
+  <div class="order-details-component flex justify-between flex-col bg-white">
     <div>
       <div
         class="order-details-header flex justify-between py-3 px-5 text-white"
@@ -152,5 +152,6 @@ export default {
 
 .order-details-component {
   box-shadow: 20px 0px 30px rgba(82, 80, 80, 0.1);
+  min-height: calc( 100vh - 75px );
 }
 </style>
