@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-between flex-col bg-white min-h-screen">
+  <div class="order-details-component flex justify-between flex-col bg-white min-h-screen">
     <div>
       <div
         class="order-details-header flex justify-between py-3 px-5 text-white"
@@ -26,11 +26,15 @@
           class="flex justify-between items-center border-b border-gray-300 py-3"
         >
           <div class="leading-loose">
-            <p>
-              <b>{{ item.quantity }} {{ item.measurmentUnit }}</b>
-              - {{ item.type }}
+            <p
+              class="font-bold"
+              :class="{ 'line-through': item.status == 'cancelled' }"
+            >
+              {{ item.quantity }} {{ item.measurmentUnit }} - {{ item.type }}
             </p>
-            <p class="font-light">"{{ item.note }}"</p>
+            <p :class="{ 'line-through': item.status == 'cancelled' }">
+              "{{ item.note }}"
+            </p>
           </div>
 
           <div v-if="item.status == ''" class="flex justify-around w-1/4">
@@ -143,6 +147,10 @@ export default {
 }
 
 .order-details-header {
-  box-shadow: inset 0  3px 20px #fff;
+  box-shadow: inset 0 2px 15px #fff;
+}
+
+.order-details-component {
+  box-shadow: 20px 0px 30px rgba(82, 80, 80, 0.1);
 }
 </style>

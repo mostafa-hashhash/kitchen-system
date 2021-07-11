@@ -37,7 +37,7 @@
         @click="emitNewOrderEvent()"
       >
         <span class="new-order-content"> ابدأ طلب جديد </span>
-        <span class="bg-white text-green-700 rounded-full mr-2 font-bold"> &nbsp; 12 &nbsp; </span>
+        <span class="bg-white text-green-700 rounded-full mr-2 font-bold"> &nbsp; 00 &nbsp; </span>
       </button>
     </div>
   </div>

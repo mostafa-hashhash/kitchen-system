@@ -8,7 +8,7 @@
       @click="notifyOrderSelection(order, index)"
     >
       <div
-        class="flex justify-between items-center m-2 text-white p-3 rounded-lg"
+        class="flex justify-between m-2 text-white p-3 rounded-lg"
         :class="{
           'bg-red-450': order.status == 'new',
           'bg-yellow-450': order.status == 'preparing',
