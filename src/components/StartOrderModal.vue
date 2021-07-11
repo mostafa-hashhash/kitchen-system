@@ -1,9 +1,10 @@
 <template>
-  <div class="flex justify-center items-center z-50 absolute w-full h-full">
-    <div class="bg-white card p-4 mx-auto ">
+  <div class="absolute w-full h-full">
+    <div class="absolute w-full h-full bg-black opacity-50"></div>
+    <div class="card bg-white p-4 mx-auto z-50 fixed">
       <img
         src="@/assets/sprite/svg/StartOrderModalClosingIcon.svg"
-        class="cursor-pointer absolute"
+        class="cursor-pointer"
         @click="emitCloseModalEvent()"
         alt="closing icon"
       />
@@ -74,7 +75,8 @@ export default {
   background: url("../assets/sprite/svg/bar.svg") center no-repeat;
 }
 
-/* .card {
-  padding: 40px 100px;
-} */
+.card {
+  top: 20vh;
+  left: 30vw;
+}
 </style>

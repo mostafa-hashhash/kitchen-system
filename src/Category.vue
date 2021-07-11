@@ -1,11 +1,11 @@
 <template>
+  <div class="grid grid-cols-12">
     <NavBar
-      class="w-full"
+      class="col-start-1 col-end-13"
       :categoryName="selectedCategoryName"
       @openMenuClick="toggleSidebarMenu()"
       @newOrderClick="openNewOrderModal()"
     />
-  <div class="grid grid-cols-12">
 
     <OngoingOrders
       class="col-start-1 col-end-8"
