@@ -59,6 +59,27 @@ export let categories = [
 						note: "عايز الطبق يكون متوزع علي أربع أطباق",
 						status: ""
 					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
+					{
+						type: "جبنة رومي",
+						quantity: "0.5",
+						measurmentUnit: "كيلو",
+						note: "عايز الطبق يكون متوزع علي أربع أطباق",
+						status: ""
+					},
 				]
 			},
 						{

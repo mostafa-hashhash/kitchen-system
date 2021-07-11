@@ -72,7 +72,7 @@
       </div>
     </div>
 
-    <div>
+    <div class="mt-5">
       <div class="flex justify-between items-center mx-auto w-4/5">
         <span>اختر عدد نسخ الطباعة</span>
 
