@@ -1,16 +1,18 @@
 <template>
   <div
-    class="fixed top-4 h-full w-full z-50 flex justify-center items-start mt-10 pt-10"
+    class="fixed top-4 h-full w-full z-50 flex justify-center items-start mt-10"
   >
-    <div class="bg-green-450 shadow-2xl flex items-center p-4">
-      <img
-        src="@/assets/sprite/svg/successfulAlertIcon.svg"
-        alt="success icon"
-      />
-      <p class="text-center text-green-999 px-4">
-        تم انهاء تنفيذ الطلب بنجاح! <br />
-        الوقت المستغرق 00:10 دقيقة
-      </p>
+    <div class="bg-green-450 shadow-2xl flex items-start p-4 pr-10">
+      <div class="flex items-center px-10 justify-between">
+        <img
+          src="@/assets/sprite/svg/successfulAlertIcon.svg"
+          alt="success icon"
+        />
+        <p class="text-center text-green-999 pl-10 pr-2">
+          تم انهاء تنفيذ الطلب بنجاح! <br />
+          الوقت المستغرق 00:10 دقيقة
+        </p>
+      </div>
       <img
         class="cursor-pointer"
         @click="emitCloseAlertEvent()"

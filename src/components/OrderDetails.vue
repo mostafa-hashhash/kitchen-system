@@ -2,7 +2,7 @@
   <div class="order-details-component flex justify-between flex-col bg-white">
     <div>
       <div
-        class="order-details-header flex justify-between py-3 px-5 text-white"
+        class="order-details-header flex justify-between py-2 px-5 text-white"
         :class="{
           'bg-red-450': order.status == 'new',
           'bg-yellow-450': order.status == 'preparing',
@@ -96,7 +96,7 @@
       </div>
 
       <button
-        class="finish-order-btn bg-green-750 py-3 px-8 w-4/5 mx-auto block text-white my-4 shadow-xl focus:outline-none rounded-lg"
+        class="finish-order-btn bg-green-750 py-3 w-4/5 mx-auto block text-white my-4 shadow-xl focus:outline-none rounded-lg"
         @click="emitFinishOrderEvent()"
       >
         إنهاء الطلب
@@ -147,7 +147,7 @@ export default {
 }
 
 .order-details-header {
-  box-shadow: inset 0 2px 15px #fff;
+  box-shadow: inset 0 2px 20px #fff;
 }
 
 .order-details-component {
