@@ -137,7 +137,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .finish-order-btn:active {
   box-shadow: none;
 }
@@ -153,5 +153,9 @@ export default {
 .order-details-component {
   box-shadow: 20px 0px 30px rgba(82, 80, 80, 0.1);
   min-height: calc( 100vh - 75px );
+}
+
+img {
+  cursor: pointer;
 }
 </style>
