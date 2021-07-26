@@ -8,7 +8,7 @@
       @click="notifyOrderSelection(order, index)"
     >
       <div
-        class="cursor-pointer flex justify-between m-2 text-white p-3 rounded-lg"
+        class="cursor-pointer flex justify-between m-2 text-white px-3 py-1 rounded-lg"
         :class="{
           'bg-red-450': order.status == 'new',
           'bg-yellow-450': order.status == 'preparing',

@@ -10,15 +10,8 @@
       />
 
       <div class="py-6 px-10 mx-10">
-        <img
-          src="@/assets/sprite/svg/card.svg"
-          alt="ID Card Icon"
-          class="mx-auto"
-        />
 
-        <p class="my-4 text-center">قم بمسح الكارت الخاص بك</p>
-        <span class="m-4 bolck or">أو</span>
-        <p class="my-4 text-center">أدخل الكود بدلا من ذلك</p>
+        <p class="my-4 text-center">أدخل الكود الخاص بك</p>
 
         <div class="my-4 ">
           <div class="inline-block ml-5">
@@ -26,6 +19,7 @@
             <input
               type="text"
               v-model="code"
+              placeholder="1234"
               class="px-4 py-2 block border rounded-lg outline-none shadow-lg w-full"
             />
           </div>

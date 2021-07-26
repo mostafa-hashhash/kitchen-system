@@ -23,18 +23,18 @@
         <div
           v-for="(item, itemIndex) in order.items"
           :key="item.status"
-          class="flex justify-between items-center border-b border-gray-300 py-3"
+          class="flex justify-between items-center border-b border-gray-300 py-4"
         >
-          <div class="leading-loose">
-            <p
-              class="font-bold"
-              :class="{ 'line-through': item.status == 'cancelled' }"
-            >
+          <div
+            :class="{
+              'leading-loose': true,
+              'line-through opacity-50': item.status == 'cancelled',
+            }"
+          >
+            <p class="font-bold">
               {{ item.quantity }} {{ item.measurmentUnit }} - {{ item.type }}
             </p>
-            <p :class="{ 'line-through': item.status == 'cancelled' }">
-              "{{ item.note }}"
-            </p>
+            <p v-if="item.note">"{{ item.note }}"</p>
           </div>
 
           <div v-if="item.status == ''" class="flex justify-around w-1/4">
@@ -73,28 +73,6 @@
     </div>
 
     <div class="mt-5">
-      <div class="flex justify-between items-center mx-auto w-4/5">
-        <span>اختر عدد نسخ الطباعة</span>
-
-        <div
-          class="flex justify-between items-center w-2/5 border rounded-lg p-2 "
-        >
-          <img
-            src="@/assets/sprite/svg/plus-print.svg"
-            alt="plus icon"
-            class="cursor-pointer"
-            @click="addToPrintCount(1)"
-          />
-          <span class="text-lg"> {{ printCount }} </span>
-          <img
-            src="@/assets/sprite/svg/minus.svg"
-            alt="minus icon"
-            class="cursor-pointer"
-            @click="addToPrintCount(-1)"
-          />
-        </div>
-      </div>
-
       <button
         class="finish-order-btn bg-green-750 py-3 w-4/5 mx-auto block text-white my-4 shadow-xl focus:outline-none rounded-lg"
         @click="emitFinishOrderEvent()"
@@ -128,11 +106,6 @@ export default {
     emitFinishOrderEvent() {
       this.$emit("finishOrderClick");
     },
-
-    addToPrintCount(num) {
-      if (this.printCount > 1 || num == 1)
-        this.printCount = this.printCount + num;
-    },
   },
 };
 </script>
@@ -152,7 +125,7 @@ export default {
 
 .order-details-component {
   box-shadow: 20px 0px 30px rgba(82, 80, 80, 0.1);
-  min-height: calc( 100vh - 75px );
+  min-height: calc(100vh - 75px);
 }
 
 img {

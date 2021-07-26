@@ -6,7 +6,7 @@
     @newOrderClick="openNewOrderModal()"
   />
 
-  <div class="inline-block mt-10 pt-7">
+  <div class="inline-block mt-10 pt-8">
     <div v-if="selectedCategoryOrders.length">
       <OngoingOrders
         class="w-3/5 inline float-right"
