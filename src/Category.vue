@@ -2,8 +2,19 @@
   <NavBar
     class="w-full fixed mb-10"
     :categoryName="selectedCategoryName"
-    @openMenuClick="openSidebarMenu()"
-    @newOrderClick="openNewOrderModal()"
+    :allOrdersCount="selectedCategoryOrdersCount"
+    :inPreparationOrdersCount="selectedCategoryOrders.length"
+    @refreshClick="refreshContent"
+    @openMenuClick="
+      () => {
+        this.displaySidebarMenu = true;
+      }
+    "
+    @newOrderClick="
+      () => {
+        this.displayNewOrderModal = true;
+      }
+    "
   />
 
   <div class="inline-block mt-10 pt-8">
@@ -18,8 +29,8 @@
         class="inline w-1/3 float-left"
         v-show="selectedOrder"
         :order="selectedOrder"
-        @newOrderStatus="handleNewOrderStatus"
-        @finishOrderClick="openAlertModal()"
+        @newOrderStatus="handleNewItemStatus"
+        @finishOrderClick="finishOrder"
       />
     </div>
 
@@ -28,20 +39,33 @@
 
   <SideBarMenu
     class="fixed top-0"
-    @categorySelection="displayCategoryOrders"
-    @closeMenuClick="closeSidebarMenu()"
+    @categorySelection="getCategoryOrders"
+    @closeMenuClick="
+      () => {
+        this.displaySidebarMenu = false;
+      }
+    "
     v-show="displaySidebarMenu"
   />
 
   <StartOrderModal
     class="w-full"
-    @closeModalClick="closeNewOrderModal()"
-    v-show="displayNewOrderModal"
+    @closeModalClick="
+      () => {
+        this.displayNewOrderModal = false;
+      }
+    "
+    @newOrderCode="startNewOrder"
+    v-if="displayNewOrderModal"
   />
 
   <Alert
     class="w-full"
-    @closeAlertClick="closeAlertModal()"
+    @closeAlertClick="
+      () => {
+        this.displayAlertModal = false;
+      }
+    "
     v-show="displayAlertModal"
   />
 </template>
@@ -55,7 +79,7 @@ import SideBarMenu from "@/components/SideBarMenu";
 import StartOrderModal from "@/components/StartOrderModal";
 import Alert from "@/components/Alert";
 
-import { categories } from "@/data";
+import { instance } from "@/api";
 
 export default {
   components: {
@@ -73,10 +97,31 @@ export default {
       selectedOrder: "",
       categoryIndex: 0,
       selectedCategoryName: "",
+      selectedCategoryValue: "",
+      selectedCategoryOrdersCount: "",
+      inPreparationOrdersCount: "",
       selectedOrderIndex: "",
       displaySidebarMenu: false,
       displayNewOrderModal: false,
       displayAlertModal: false,
+      categories: [
+        {
+          name: "قسم اللحوم",
+          value: "MEAT",
+        },
+        {
+          name: "قسم الجبن",
+          value: "CHEESE",
+        },
+        {
+          name: "قسم الأسماك",
+          value: "FISH",
+        },
+        {
+          name: "قسم الدواجن",
+          value: "CHICKEN"
+        }
+      ],
     };
   },
 
@@ -86,45 +131,69 @@ export default {
       this.selectedOrderIndex = e.orderIndex;
     },
 
-    displayCategoryOrders(e) {
-      this.categoryIndex = e?.categoryIndex || 0;
-      this.selectedCategoryName = categories[this.categoryIndex].name;
-      this.selectedCategoryOrders = categories[this.categoryIndex].orders;
+    // handleNewItemStatus(e) {
+    //   categories[this.categoryIndex].orders[this.selectedOrderIndex].items[
+    //     e.itemNumber
+    //   ].status = e.itemStatus;
+    // },
+
+    finishOrder(data) {
+      instance
+        .post(
+          `/api/orders/order/${data.id}/${this.selectedCategoryValue}/finish`
+        )
+        .then((response) => {
+          if (response.data.success) {
+            this.displayAlertModal = true;
+            this.selectedCategoryOrders.splice(this.selectedOrderIndex, 1);
+          }
+        });
     },
 
-    handleNewOrderStatus(e) {
-      categories[this.categoryIndex].orders[this.selectedOrderIndex].items[
-        e.itemNumber
-      ].status = e.itemStatus;
+    startNewOrder(data) {
+      let formData = new FormData();
+      formData.append("code", data.code);
+
+      instance({
+        method: "post",
+        url: `/api/orders/${this.selectedCategoryValue}/pull`,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+        data: formData,
+      }).then((response) => {
+        if (response.data.success) {
+          console.log("pulled a new order");
+          this.selectedCategoryOrders.push(response.data.order);
+          this.selectedCategoryOrdersCount -= 1;
+        }
+      });
     },
 
-    openSidebarMenu() {
-      this.displaySidebarMenu = true;
+    getCategoryOrders(e) {
+      if (e?.categoryIndex != undefined) {
+        localStorage.setItem("categoryIndex", e?.categoryIndex || 0);
+        this.categoryIndex = e?.categoryIndex;
+      } else this.categoryIndex = localStorage.getItem("categoryIndex");
+
+      this.selectedCategoryValue = this.categories[this.categoryIndex].value;
+      this.selectedCategoryName = this.categories[this.categoryIndex].name;
+
+      instance
+        .get(`/api/orders/${this.selectedCategoryValue}/details`)
+        .then((response) => {
+          this.selectedCategoryOrders = response.data.orders;
+          this.selectedCategoryOrdersCount = response.data.count;
+        });
     },
 
-    closeSidebarMenu() {
-      this.displaySidebarMenu = false;
-    },
-
-    openNewOrderModal() {
-      this.displayNewOrderModal = true;
-    },
-
-    closeNewOrderModal() {
-      this.displayNewOrderModal = false;
-    },
-
-    openAlertModal() {
-      this.displayAlertModal = true;
-    },
-
-    closeAlertModal() {
-      this.displayAlertModal = false;
-    },
+    refreshContent(){
+      this.getCategoryOrders();
+    }
   },
 
   mounted: function() {
-    this.displayCategoryOrders();
+    this.getCategoryOrders();
   },
 };
 </script>

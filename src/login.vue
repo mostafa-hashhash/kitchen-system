@@ -4,8 +4,12 @@
       class="col-start-1 col-end-3 bg-green-750 flex flex-row justify-center items-center min-h-screen"
     >
       <div>
-        <img src="@/assets/sprite/svg/logo.svg" class="" alt="Seoudi Logo" />
-        <h3 class="text-3xl text-white font-bold text-center my-10">
+        <img
+          src="@/assets/sprite/svg/logo.svg"
+          class="w-6/7 mx-auto"
+          alt="Seoudi Logo"
+        />
+        <h3 class="text-4xl text-white font-bold text-center my-9">
           نظام عرض المطبخ
         </h3>
       </div>
@@ -16,19 +20,20 @@
     >
       <div class="col-start-2 col-end-4">
         <h2 class="text-3xl">تسجيل الدخول</h2>
-        <form>
+        <form @submit.prevent="getAuth()">
           <div class="my-6 flex flex-col">
             <label class="p-2" for="branch">إختر الفرع</label>
             <select
               v-model="selectedBranch"
               class="branch-menu py-4 px-2 text-black-primary bg-gray-150 outline-none"
               name="branch"
+              required
             >
               <option value="" selected disabled hidden>إختر ...</option>
               <option
-                v-for="branch in b"
+                v-for="branch in branchesList"
                 :key="branch.id"
-                :value="branch.value"
+                :value="branch.id"
               >
                 {{ branch.name }}
               </option>
@@ -46,6 +51,7 @@
               class="password py-3 px-5 rounded bg-gray-150 outline-none"
               type="password"
               name="password"
+              required
               v-model="password"
             />
           </div>
@@ -61,26 +67,58 @@
 </template>
 
 <script>
-import { branches } from "@/data";
+import { instance } from "@/api";
 
 export default {
   name: "login",
   data: () => {
     return {
-      b: branches,
+      branchesList: "",
       password: "",
       selectedBranch: "",
     };
   },
+
+  mounted: function() {
+    this.getLocationDetails();
+    this.getAutherized();
+  },
+
+  methods: {
+    getAuth() {
+      instance
+        .post("/oauth/token", {
+          grant_type: "password",
+          client_id: this.selectedBranch,
+          client_secret: process.env.VUE_APP_CLIENT_SECRET,
+          username: "1",
+          password: this.password,
+          scope: "",
+        })
+        .then((response) => {
+          console.log(response.data);
+          this.setCookie(
+            response.data.access_token,
+            response.data.expires_in,
+            response.data.token_type
+          );
+          window.location = "/orders";
+        });
+    },
+
+    getLocationDetails() {
+      instance.get("/api/locations").then((response) => {
+        this.branchesList = response.data;
+      });
+    },
+
+    setCookie(content, age, type) {
+      document.cookie = `ACCESS_TOKEN=${type} ${content}; max-age:${age}; path=/`;
+    },
+
+    chaaange() {
+      console.log(this.password);
+    },
+  },
 };
 </script>
-
-<style>
-html {
-  height: 100%;
-}
-
-body {
-  min-height: 100%;
-}
-</style>

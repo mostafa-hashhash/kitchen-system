@@ -18,9 +18,9 @@
       <div class="flex items-center justify-center">
         <span class="text-xl">قيد التحضير</span>
         <span
-          class="bg-green-750 text-white mx-2	px-1 py-2 rounded-full font-bold"
+          class="bg-green-750 text-white mx-2	px-1 py-1 rounded-full font-bold"
         >
-          &nbsp; 00 &nbsp;
+          &nbsp; {{ inPreparationOrdersCount }} &nbsp;
         </span>
       </div>
     </div>
@@ -28,6 +28,7 @@
     <div class="col-start-10 flex justify-evenly items-center col-end-13">
       <button
         class="refresh-btn border-2 border-green-750 p-2 rounded-lg shadow-xl focus:outline-none"
+        @click="emitRefreshEvent()"
       >
         <img src="@/assets/sprite/svg/refresh.svg" alt="Refresh Arrows" />
       </button>
@@ -37,7 +38,9 @@
         @click="emitNewOrderEvent()"
       >
         <span class="new-order-content"> ابدأ طلب جديد </span>
-        <span class="bg-white text-green-700 rounded-full mr-2 font-bold"> &nbsp; 00 &nbsp; </span>
+        <span class="bg-white text-green-700 rounded-full mr-2 font-bold">
+          &nbsp; {{ allOrdersCount }} &nbsp;
+        </span>
       </button>
     </div>
   </div>
@@ -45,7 +48,7 @@
 
 <script>
 export default {
-  props: ["categoryName"],
+  props: ["categoryName", "allOrdersCount", "inPreparationOrdersCount"],
   methods: {
     emitOpenMenuEvent() {
       this.$emit("openMenuClick");
@@ -54,6 +57,10 @@ export default {
     emitNewOrderEvent() {
       this.$emit("newOrderClick");
     },
+
+    emitRefreshEvent(){
+      this.$emit("refreshClick")
+    }
   },
 };
 </script>

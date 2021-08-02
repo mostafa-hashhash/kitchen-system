@@ -8,7 +8,7 @@
       @click="notifyOrderSelection(order, index)"
     >
       <div
-        class="cursor-pointer flex justify-between m-2 text-white px-3 py-1 rounded-lg"
+        class="bg-red-450 cursor-pointer flex justify-between m-2 text-white px-3 py-1 rounded-lg"
         :class="{
           'bg-red-450': order.status == 'new',
           'bg-yellow-450': order.status == 'preparing',
@@ -16,12 +16,13 @@
         }"
       >
         <p class="font-bold leading-loose	">
-          <span>{{ order.name }}</span> <br>
+          <span>{{ order.customer_name }}</span> <br />
           <span class="date"> {{ order.date }}</span>
         </p>
         <p class="leading-loose">
-          <span class="number">{{ order.number }}</span><br>
-          <span>{{ order.items.length }} منتجات</span>
+          <span class="number">{{ order.order_number }}</span
+          ><br />
+          <span>{{ order.items.length }} من المنتجات</span>
         </p>
       </div>
     </div>
@@ -68,6 +69,4 @@ export default {
   border: 5px solid #84c559;
   border-radius: 10px;
 }
-
-
 </style>
