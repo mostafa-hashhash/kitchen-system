@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Nav from "@/Category";
+import Nav from "@/login";
 
 export default {
   name: "App",
@@ -14,9 +14,9 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo&display=swap");
 
-html{
+html {
   height: 100%;
 }
 
@@ -25,6 +25,18 @@ body {
 }
 * {
   direction: rtl;
-  font-family: 'Cairo';
+  font-family: "Cairo";
+}
+
+.date::before {
+  content: " ";
+  float: right;
+  background: url("assets/sprite/svg/time.svg") center no-repeat;
+  padding: 16px 10px;
+  margin-left: 5px;
+}
+
+.number::before {
+  content: "#";
 }
 </style>

@@ -1,38 +1,35 @@
 <template>
-  <div class="flex justify-center items-center z-50 absolute w-full h-full">
-    <div class="bg-white p-8 mx-auto">
+  <div class="absolute top-0 w-full h-full">
+    <div class="absolute w-full h-full bg-black opacity-50"></div>
+    <div class="card bg-white p-4 mx-auto z-50 fixed">
       <img
-        src="@/assets/StartOrderModalClosingIcon.svg"
+        src="@/assets/sprite/svg/StartOrderModalClosingIcon.svg"
         class="cursor-pointer"
         @click="emitCloseModalEvent()"
-        alt=""
+        alt="closing icon"
       />
-      <img src="@/assets/card.svg" alt="ID Card Icon" class="mx-auto" />
-      <p class="my-4 text-center">قم بمسح الكارت الخاص بك</p>
 
-      <div class="text-center">
-        <img class="inline w-2/5" src="@/assets/bar.svg" alt="" />
-        <span class="m-4 bolck">أو</span>
-        <img class="inline w-2/5" src="@/assets/bar.svg" alt="" />
-      </div>
+      <div class="py-6 px-10 mx-10">
 
-      <p class="my-4 text-center">أدخل الكود بدلا من ذلك</p>
+        <p class="my-4 text-center">أدخل الكود الخاص بك</p>
 
-      <div class="my-4 ">
-        <div class="inline-block ml-5">
-          <label class="mb-2 block" for="code">الكود</label>
-          <input
-            type="text"
-            v-model="code"
-            class="px-4 py-2 block border rounded-lg outline-none shadow-lg w-full"
-          />
+        <div class="my-4 ">
+          <div class="inline-block ml-5">
+            <label class="mb-2 block" for="code">الكود</label>
+            <input
+              type="text"
+              v-model="code"
+              placeholder="1234"
+              class="px-4 py-2 block border rounded-lg outline-none shadow-lg w-full"
+            />
+          </div>
+
+          <button
+            class="start-order-btn bg-green-750 text-white px-6 py-2 rounded-lg shadow-xl focus:outline-none"
+          >
+            ابدأ الطلب
+          </button>
         </div>
-
-        <button
-          class="start-order-btn bg-green-750 text-white px-6 py-2 rounded-lg shadow-xl focus:outline-none"
-        >
-          ابدأ الطلب
-        </button>
       </div>
     </div>
   </div>
@@ -58,5 +55,22 @@ export default {
 .start-order-btn:active {
   box-shadow: none !important;
   background-color: #005931 !important;
+}
+
+.or {
+  display: flex;
+}
+.or::after,
+.or::before {
+  content: " ";
+  width: 100%;
+  margin: 10px;
+  padding: 5px;
+  background: url("../assets/sprite/svg/bar.svg") center no-repeat;
+}
+
+.card {
+  top: 20vh;
+  left: 30vw;
 }
 </style>

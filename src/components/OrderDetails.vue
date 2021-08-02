@@ -1,91 +1,81 @@
 <template>
-  <div class="bg-white min-h-screen">
-    <div
-      class="p-4 text-white"
-      :class="{
-        'bg-red-450': order.status == 'new',
-        'bg-yellow-450': order.status == 'preparing',
-        'bg-green-450': order.status == 'ready',
-      }"
-    >
-      <p class="mb-2">
-        <span class="font-bold">{{ order.name }}</span>
-        <span class="float-left">طلب رقم </span>
-      </p>
-      <p>
-        <span class="">
-          <img src="@/assets/time.svg" class="inline" alt="" width="15" />
-          {{ order.date }}</span
-        >
-        <span class="float-left font-bold">#{{ order.number }}</span>
-      </p>
-    </div>
-
-    <div class="px-5">
-      <div
-        v-for="(item, itemIndex) in order.items"
-        :key="item.status"
-        class="flex justify-between border-b border-gray-300 my-2 py-2"
-      >
-        <div class="inline-block">
-          <p class="my-1 py-1">
-            <b>{{ item.quantity }} {{ item.measurmentUnit }}</b>
-            - {{ item.type }}
-          </p>
-          <p class="font-light">"{{ item.note }}"</p>
-        </div>
-
-        <div class="inline-block mt-5 mr-8" v-if="item.status == ''">
-          <img
-            src="@/assets/confirm.svg"
-            alt="Confirm Icon"
-            class="inline mx-2 mb-3"
-            @click="changeItemStatus(itemIndex, 'confirmed')"
-          />
-          <img
-            src="@/assets/cancel.svg"
-            alt="Cancel Icon"
-            class="inline mx-2 mb-3 mt-0 pt-0"
-            @click="changeItemStatus(itemIndex, 'cancelled')"
-          />
-        </div>
-
-        <div v-else-if="item.status == 'confirmed'" class="inline-block mr-8">
-          <img src="@/assets/confirm-active.svg" class="inline mx-2 mb-3" />
-          <img
-            src="@/assets/cancel.svg"
-            class="inline mx-2 mb-3 mt-0 pt-0"
-            @click="changeItemStatus(itemIndex, 'cancelled')"
-          />
-        </div>
-
-        <div v-else class="inline-block mr-8">
-          <img
-            src="@/assets/confirm.svg"
-            class="inline mx-2 mb-3"
-            @click="changeItemStatus(itemIndex, 'confirmed')"
-          />
-          <img
-            src="@/assets/cancel-active.svg"
-            class="inline mx-2 mb-3 mt-0 pt-0"
-          />
-        </div>
-      </div>
-    </div>
-
+  <div class="order-details-component flex justify-between flex-col bg-white">
     <div>
-      <div class="p-2 mx-auto w-3/4">
-        <span>اختر عدد نسخ الطباعة</span>
-
-        <div class="inline float-left">
-          <img src="@/assets/plus-print.svg" alt="" class="inline" />
-          <span> 1 </span>
-          <img src="@/assets/minus.svg" alt="" class="inline" />
-        </div>
+      <div
+        class="order-details-header flex justify-between py-2 px-5 text-white"
+        :class="{
+          'bg-red-450': order.status == 'new',
+          'bg-yellow-450': order.status == 'preparing',
+          'bg-green-450': order.status == 'ready',
+        }"
+      >
+        <p>
+          <span class="font-bold">{{ order.name }}</span> <br />
+          <span class="date"> {{ order.date }}</span>
+        </p>
+        <p>
+          <span>طلب رقم </span> <br />
+          <span class="font-bold number">{{ order.number }}</span>
+        </p>
       </div>
 
+      <div class="px-5">
+        <div
+          v-for="(item, itemIndex) in order.items"
+          :key="item.status"
+          class="flex justify-between items-center border-b border-gray-300 py-4"
+        >
+          <div
+            :class="{
+              'leading-loose': true,
+              'line-through opacity-50': item.status == 'cancelled',
+            }"
+          >
+            <p class="font-bold">
+              {{ item.quantity }} {{ item.measurmentUnit }} - {{ item.type }}
+            </p>
+            <p v-if="item.note">"{{ item.note }}"</p>
+          </div>
+
+          <div v-if="item.status == ''" class="flex justify-around w-1/4">
+            <img
+              src="@/assets/sprite/svg/confirm.svg"
+              alt="Confirm Icon"
+              @click="changeItemStatus(itemIndex, 'confirmed')"
+            />
+            <img
+              src="@/assets/sprite/svg/cancel.svg"
+              alt="Cancel Icon"
+              @click="changeItemStatus(itemIndex, 'cancelled')"
+            />
+          </div>
+
+          <div
+            v-else-if="item.status == 'confirmed'"
+            class="flex justify-around w-1/4"
+          >
+            <img src="@/assets/sprite/svg/confirm-active.svg" />
+            <img
+              src="@/assets/sprite/svg/cancel.svg"
+              @click="changeItemStatus(itemIndex, 'cancelled')"
+            />
+          </div>
+
+          <div v-else class="flex justify-around w-1/4">
+            <img
+              src="@/assets/sprite/svg/confirm.svg"
+              @click="changeItemStatus(itemIndex, 'confirmed')"
+            />
+            <img src="@/assets/sprite/svg/cancel-active.svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-5">
       <button
-        class=" finish-order-btn bg-green-750 py-3 px-8 w-3/4 mx-auto block text-white my-4 shadow-xl focus:outline-none rounded-lg"
+        class="finish-order-btn bg-green-750 py-3 w-4/5 mx-auto block text-white my-4 shadow-xl focus:outline-none rounded-lg"
+        @click="emitFinishOrderEvent()"
       >
         إنهاء الطلب
       </button>
@@ -97,6 +87,12 @@
 export default {
   props: ["order"],
 
+  data() {
+    return {
+      printCount: 1,
+    };
+  },
+
   methods: {
     changeItemStatus(idx, newStatus) {
       this.$emit("newOrderStatus", {
@@ -106,12 +102,33 @@ export default {
 
       this.$forceUpdate();
     },
+
+    emitFinishOrderEvent() {
+      this.$emit("finishOrderClick");
+    },
   },
 };
 </script>
 
-<style>
+<style scoped>
 .finish-order-btn:active {
   box-shadow: none;
+}
+
+.order-details-header > p {
+  line-height: 2;
+}
+
+.order-details-header {
+  box-shadow: inset 0 2px 20px #fff;
+}
+
+.order-details-component {
+  box-shadow: 20px 0px 30px rgba(82, 80, 80, 0.1);
+  min-height: calc(100vh - 75px);
+}
+
+img {
+  cursor: pointer;
 }
 </style>

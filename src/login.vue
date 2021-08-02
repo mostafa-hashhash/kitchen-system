@@ -4,7 +4,7 @@
       class="col-start-1 col-end-3 bg-green-750 flex flex-row justify-center items-center min-h-screen"
     >
       <div>
-        <img src="@/assets/logo.svg" class="" alt="Seoudi Logo" />
+        <img src="@/assets/sprite/svg/logo.svg" class="" alt="Seoudi Logo" />
         <h3 class="text-3xl text-white font-bold text-center my-10">
           نظام عرض المطبخ
         </h3>

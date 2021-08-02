@@ -4,32 +4,24 @@
       v-for="(order, index) in orders"
       :key="order.number"
       class="w-80 order-wrapper"
-      :class="{
-          'order-1': order.status == 'new',
-          'order-2': order.status == 'preparing',
-          'order-3': order.status == 'ready',
-        }"
       :id="'id' + index"
       @click="notifyOrderSelection(order, index)"
     >
       <div
-        class="m-2 text-white p-3 rounded-lg"
+        class="cursor-pointer flex justify-between m-2 text-white px-3 py-1 rounded-lg"
         :class="{
           'bg-red-450': order.status == 'new',
           'bg-yellow-450': order.status == 'preparing',
           'bg-green-450': order.status == 'ready',
         }"
       >
-        <p class="font-bold mb-2">
-          <span class="float-rigth">{{ order.name }}</span>
-          <span class="float-left">#{{ order.number }} </span>
+        <p class="font-bold leading-loose	">
+          <span>{{ order.name }}</span> <br>
+          <span class="date"> {{ order.date }}</span>
         </p>
-        <p>
-          <span class="float-rigth">
-            <img src="@/assets/time.svg" class="inline" alt="" width="15" />
-            {{ order.date }}</span
-          >
-          <span class="float-left">{{ order.items.length }} منتجات</span>
+        <p class="leading-loose">
+          <span class="number">{{ order.number }}</span><br>
+          <span>{{ order.items.length }} منتجات</span>
         </p>
       </div>
     </div>
@@ -76,5 +68,6 @@ export default {
   border: 5px solid #84c559;
   border-radius: 10px;
 }
+
 
 </style>
