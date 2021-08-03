@@ -61,6 +61,7 @@
 
   <Alert
     class="w-full"
+    :orderTime="finishedOrderTime"
     @closeAlertClick="
       () => {
         this.displayAlertModal = false;
@@ -119,8 +120,8 @@ export default {
         },
         {
           name: "قسم الدواجن",
-          value: "CHICKEN"
-        }
+          value: "CHICKEN",
+        },
       ],
     };
   },
@@ -131,11 +132,10 @@ export default {
       this.selectedOrderIndex = e.orderIndex;
     },
 
-    // handleNewItemStatus(e) {
-    //   categories[this.categoryIndex].orders[this.selectedOrderIndex].items[
-    //     e.itemNumber
-    //   ].status = e.itemStatus;
-    // },
+    handleNewItemStatus(e) {
+      console.log(this.selectedOrder.items[e.itemNumber].status);
+      this.selectedOrder.items[e.itemNumber].status = e.itemStatus;
+    },
 
     finishOrder(data) {
       instance
@@ -144,8 +144,10 @@ export default {
         )
         .then((response) => {
           if (response.data.success) {
+            this.finishedOrderTime = this.selectedOrder.time;
             this.displayAlertModal = true;
             this.selectedCategoryOrders.splice(this.selectedOrderIndex, 1);
+            this.selectedOrder = "";
           }
         });
     },
@@ -163,8 +165,10 @@ export default {
         data: formData,
       }).then((response) => {
         if (response.data.success) {
-          console.log("pulled a new order");
-          this.selectedCategoryOrders.push(response.data.order);
+          let order = response.data.order;
+          this.handleOrderTiming(order);
+
+          this.selectedCategoryOrders.push(order);
           this.selectedCategoryOrdersCount -= 1;
         }
       });
@@ -184,12 +188,29 @@ export default {
         .then((response) => {
           this.selectedCategoryOrders = response.data.orders;
           this.selectedCategoryOrdersCount = response.data.count;
+
+          this.selectedCategoryOrders.forEach((order) => {
+            this.handleOrderTiming(order);
+          });
         });
     },
 
-    refreshContent(){
+    handleOrderTiming(order) {
+      setInterval(() => {
+        order.slaTime = Math.ceil(
+          (Date.now() - order.kitchen_started_at) / 1000
+        );
+
+        order.time = `${Math.floor(order.slaTime / 60)}:${order.slaTime % 60}`;
+
+        order.status =
+          order.slaTime > order.out_of_sla_in * 60 ? "out-of-sla" : "in-sla";
+      }, 1000);
+    },
+
+    refreshContent() {
       this.getCategoryOrders();
-    }
+    },
   },
 
   mounted: function() {

@@ -26,7 +26,7 @@
             </div>
 
             <input
-              class="start-order-btn bg-green-750 text-white px-6 py-2 rounded-lg shadow-xl focus:outline-none"
+              class="start-order-btn bg-green-750 text-white px-6 py-2 rounded-lg shadow-xl focus:outline-none cursor-pointer"
               @click="startOrderWithCode()"
               type="submit"
               value="ابدأ الطلب"

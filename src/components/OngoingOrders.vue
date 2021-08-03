@@ -10,14 +10,13 @@
       <div
         class="bg-red-450 cursor-pointer flex justify-between m-2 text-white px-3 py-1 rounded-lg"
         :class="{
-          'bg-red-450': order.status == 'new',
-          'bg-yellow-450': order.status == 'preparing',
-          'bg-green-450': order.status == 'ready',
+          'bg-red-450': order.status == 'out-of-sla',
+          'bg-green-450': order.status == 'in-sla',
         }"
       >
         <p class="font-bold leading-loose	">
           <span>{{ order.customer_name }}</span> <br />
-          <span class="date"> {{ order.date }}</span>
+          <span class="date"> {{ order.time }}</span>
         </p>
         <p class="leading-loose">
           <span class="number">{{ order.order_number }}</span

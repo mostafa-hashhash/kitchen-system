@@ -4,13 +4,13 @@
       <div
         class="bg-red-450 order-details-header flex justify-between py-2 px-5 text-white"
         :class="{
-          'bg-red-450': order.status == 'new',
-          'bg-green-450': order.status == 'ready',
+          'bg-red-450': order.status == 'out-of-sla',
+          'bg-green-450': order.status == 'in-sla',
         }"
       >
         <p>
           <span class="font-bold">{{ order.customer_name }}</span> <br />
-          <span class="date"> {{ order.date }}</span>
+          <span class="date"> {{ order.time }}</span>
         </p>
         <p>
           <span>طلب رقم </span> <br />
@@ -36,7 +36,7 @@
             <p v-if="item.note">"{{ item.note }}"</p>
           </div>
 
-          <div v-if="item.status == ''" class="flex justify-around w-1/4">
+          <div v-if="item.status == 'IN_PROGRESS'" class="flex justify-around w-1/4">
             <img
               src="@/assets/sprite/svg/confirm.svg"
               alt="Confirm Icon"
@@ -98,7 +98,6 @@ export default {
 
     emitFinishOrderEvent() {
       this.$emit("finishOrderClick", {id : this.order.id});
-      console.log(this.order.id)
     },
   },
 };
