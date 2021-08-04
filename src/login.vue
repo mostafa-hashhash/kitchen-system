@@ -88,7 +88,7 @@ export default {
       return instance({
         method: "post",
         url:
-          "https://cors-anywhere.herokuapp.com/http://206.189.196.39:6945/oauth/token",
+          "/oauth/token",
         headers: {
           "Access-Control-Allow-Origin": "*",
         },
