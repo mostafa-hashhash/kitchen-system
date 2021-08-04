@@ -9,7 +9,7 @@
           class="w-6/7 mx-auto"
           alt="Seoudi Logo"
         />
-        <h3 class="text-4xl text-white font-bold text-center my-9">
+        <h3 class="text-4xl text-white font-bold text-center mt-10">
           نظام عرض المطبخ
         </h3>
       </div>
@@ -22,10 +22,10 @@
         <h2 class="text-3xl">تسجيل الدخول</h2>
         <form @submit.prevent="getAuth()">
           <div class="my-6 flex flex-col">
-            <label class="p-2" for="branch">إختر الفرع</label>
+            <label class="p-2" for="branch">اختر الفرع</label>
             <select
               v-model="selectedBranch"
-              class="branch-menu py-4 px-2 text-black-primary bg-gray-150 outline-none"
+              class="branch-menu py-4 px-2 rounded-lg text-black-primary bg-gray-150 outline-none"
               name="branch"
               required
             >
@@ -41,14 +41,14 @@
           </div>
 
           <div class="my-6 flex flex-col">
-            <div>
-              <label for="password" class="p-2">كلمة السر</label>
+            <div class="p-2">
+              <label for="password">كلمة السر</label>
               <label for="password" class="float-left text-green-750"
                 >نسيت كلمة السر؟</label
               >
             </div>
             <input
-              class="password py-3 px-5 rounded bg-gray-150 outline-none"
+              class="py-3 px-2 rounded-lg bg-gray-150 outline-none"
               type="password"
               name="password"
               required
@@ -56,7 +56,7 @@
             />
           </div>
           <input
-            class="py-3 px-8 my-2 bg-green-750 rounded-md text-white outline-none"
+            class="py-3 px-8 my-2 bg-green-750 rounded-lg text-white outline-none shadow-xl cursor-pointer"
             type="submit"
             value="تسجيل دخول"
           />
@@ -81,29 +81,34 @@ export default {
 
   mounted: function() {
     this.getLocationDetails();
-    this.getAutherized();
   },
 
   methods: {
     getAuth() {
-      instance
-        .post("/oauth/token", {
+      return instance({
+        method: "post",
+        url:
+          "https://cors-anywhere.herokuapp.com/http://206.189.196.39:6945/oauth/token",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
+        data: {
           grant_type: "password",
-          client_id: this.selectedBranch,
+          client_id: process.env.VUE_APP_CLIENT_ID,
           client_secret: process.env.VUE_APP_CLIENT_SECRET,
-          username: "1",
+          username: this.selectedBranch,
           password: this.password,
           scope: "",
-        })
-        .then((response) => {
-          console.log(response.data);
-          this.setCookie(
-            response.data.access_token,
-            response.data.expires_in,
-            response.data.token_type
-          );
-          window.location = "/orders";
-        });
+        },
+      }).then((response) => {
+        console.log(response.data);
+        this.setCookie(
+          response.data.access_token,
+          response.data.expires_in,
+          response.data.token_type
+        );
+        // window.location = "/orders";
+      });
     },
 
     getLocationDetails() {
@@ -122,3 +127,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+input[type=submit]:active {
+  box-shadow: none;
+}
+</style>

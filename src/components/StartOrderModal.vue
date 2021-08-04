@@ -69,7 +69,6 @@ export default {
 <style>
 .start-order-btn:active {
   box-shadow: none !important;
-  background-color: #005931 !important;
 }
 
 .card {
