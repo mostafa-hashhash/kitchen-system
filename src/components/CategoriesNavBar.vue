@@ -58,9 +58,9 @@ export default {
       this.$emit("newOrderClick");
     },
 
-    emitRefreshEvent(){
-      this.$emit("refreshClick")
-    }
+    emitRefreshEvent() {
+      this.$emit("refreshClick");
+    },
   },
 };
 </script>

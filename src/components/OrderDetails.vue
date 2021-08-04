@@ -30,13 +30,14 @@
               'line-through opacity-50': item.status == 'cancelled',
             }"
           >
-            <p class="font-bold">
-              {{ item.qty }} {{item.name}} {{ item.measurmentUnit }} {{ item.type }}
-            </p>
+            <p class="font-bold">{{ item.qty }} {{ item.name }}</p>
             <p v-if="item.note">"{{ item.customer_comment }}"</p>
           </div>
 
-          <div v-if="item.status == 'IN_PROGRESS'" class="flex justify-around w-1/4">
+          <div
+            v-if="item.status == 'IN_PROGRESS'"
+            class="flex justify-around w-1/4"
+          >
             <img
               src="@/assets/sprite/svg/confirm.svg"
               alt="Confirm Icon"
@@ -97,7 +98,7 @@ export default {
     },
 
     emitFinishOrderEvent() {
-      this.$emit("finishOrderClick", {id : this.order.id});
+      this.$emit("finishOrderClick", { id: this.order.id });
     },
   },
 };

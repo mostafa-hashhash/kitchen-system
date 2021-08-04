@@ -21,7 +21,7 @@
                 v-model="code"
                 placeholder="1234"
                 required
-                class="hhh px-4 py-2 block border rounded-lg outline-none shadow-lg w-full"
+                class="px-4 py-2 block border rounded-lg outline-none shadow-lg w-full"
               />
             </div>
 
@@ -58,10 +58,6 @@ export default {
       }
     },
   },
-
-  mounted: function(){
-    document.querySelector('.hhh').focus()
-  }
 };
 </script>
 
