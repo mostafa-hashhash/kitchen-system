@@ -33,7 +33,7 @@
             <p class="font-bold">
               {{ item.qty }} {{item.name}} {{ item.measurmentUnit }} {{ item.type }}
             </p>
-            <p v-if="item.note">"{{ item.note }}"</p>
+            <p v-if="item.note">"{{ item.customer_comment }}"</p>
           </div>
 
           <div v-if="item.status == 'IN_PROGRESS'" class="flex justify-around w-1/4">

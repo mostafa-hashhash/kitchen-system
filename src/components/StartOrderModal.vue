@@ -72,18 +72,6 @@ export default {
   background-color: #005931 !important;
 }
 
-/* .or {
-  display: flex;
-}
-.or::after,
-.or::before {
-  content: " ";
-  width: 100%;
-  margin: 10px;
-  padding: 5px;
-  background: url("../assets/sprite/svg/bar.svg") center no-repeat;
-} */
-
 .card {
   top: 30vh;
   left: 30vw;
