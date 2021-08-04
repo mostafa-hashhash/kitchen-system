@@ -40,6 +40,7 @@
   <SideBarMenu
     class="fixed top-0"
     @categorySelection="getCategoryOrders"
+    @logoutClick="removeAuthentication"
     @closeMenuClick="
       () => {
         this.displaySidebarMenu = false;
@@ -133,7 +134,6 @@ export default {
     },
 
     handleNewItemStatus(e) {
-      console.log(this.selectedOrder.items[e.itemNumber].status);
       this.selectedOrder.items[e.itemNumber].status = e.itemStatus;
     },
 
@@ -211,6 +211,10 @@ export default {
     refreshContent() {
       this.getCategoryOrders();
     },
+
+    removeAuthentication(){
+      this.$emit("removeAuthentication")
+    }
   },
 
   mounted: function() {

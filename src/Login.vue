@@ -100,11 +100,7 @@ export default {
           scope: "",
         },
       }).then((response) => {
-        this.setCookie(
-          response.data.access_token,
-          response.data.expires_in,
-          response.data.token_type
-        );
+        this.$emit("setAuthentication", response.data);
       });
     },
 
@@ -112,14 +108,6 @@ export default {
       instance.get("/api/locations").then((response) => {
         this.branchesList = response.data;
       });
-    },
-
-    setCookie(content, age, type) {
-      document.cookie = `ACCESS_TOKEN=${type} ${content}; max-age:${age}; path=/`;
-    },
-
-    chaaange() {
-      console.log(this.password);
     },
   },
 };

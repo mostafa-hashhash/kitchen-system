@@ -50,6 +50,10 @@ export default {
     notifyCategortySelection(num) {
       this.$emit("categorySelection", { categoryIndex: num });
     },
+
+    logout(){
+      this.$emit("logoutClick")
+    }
   },
 };
 </script>
