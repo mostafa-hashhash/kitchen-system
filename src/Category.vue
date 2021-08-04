@@ -67,7 +67,7 @@
         this.displayAlertModal = false;
       }
     "
-    v-show="displayAlertModal"
+    v-if="displayAlertModal"
   />
 </template>
 

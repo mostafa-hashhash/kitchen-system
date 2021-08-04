@@ -87,8 +87,7 @@ export default {
     getAuth() {
       return instance({
         method: "post",
-        url:
-          "/oauth/token",
+        url: "/oauth/token",
         headers: {
           "Access-Control-Allow-Origin": "*",
         },
@@ -101,13 +100,11 @@ export default {
           scope: "",
         },
       }).then((response) => {
-        console.log(response.data);
         this.setCookie(
           response.data.access_token,
           response.data.expires_in,
           response.data.token_type
         );
-        // window.location = "/orders";
       });
     },
 
@@ -129,7 +126,7 @@ export default {
 </script>
 
 <style scoped>
-input[type=submit]:active {
+input[type="submit"]:active {
   box-shadow: none;
 }
 </style>

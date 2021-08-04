@@ -9,11 +9,11 @@
         }"
       >
         <p>
-          <span class="font-bold">{{ order.customer_name }}</span> <br />
+          <span class="font-bold block">{{ order.customer_name }}</span>
           <span class="date"> {{ order.time }}</span>
         </p>
         <p>
-          <span>طلب رقم </span> <br />
+          <span class="block">طلب رقم </span>
           <span class="font-bold number">{{ order.order_number }}</span>
         </p>
       </div>

@@ -54,7 +54,6 @@ export default {
     startOrderWithCode() {
       if (this.code) {
         this.$emit("newOrderCode", { code: this.code });
-        this.code = "";
         this.emitCloseModalEvent();
       }
     },
