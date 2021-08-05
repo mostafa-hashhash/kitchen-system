@@ -3,7 +3,7 @@
     @removeAuthentication="removeAcessTokenCookie"
     v-if="isAuthenticated"
   />
-  <Login @setAuthentication="setAccessTokenCookie" v-else />
+  <Login @setAuthentication="storeAccessToken" v-else />
 </template>
 
 <script>
@@ -14,7 +14,7 @@ export default {
   name: "App",
   data() {
     return {
-      isAuthenticated: "",
+      isAuthenticated: false,
     };
   },
   components: {
@@ -25,12 +25,12 @@ export default {
   methods: {
     removeAcessTokenCookie() {
       document.cookie =
-        "ACCESS_TOKEN=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+        "access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
       this.isAuthenticated = false;
     },
 
-    setAccessTokenCookie(data) {
-      document.cookie = `ACCESS_TOKEN=${data.token_type} ${data.access_token}; max-age=${data.expires_in}; path=/`;
+    storeAccessToken(data) {
+      document.cookie = `access_token=${data.token_type} ${data.access_token}; max-age=${data.expires_in}; path=/`;
       this.isAuthenticated = true;
     },
   },

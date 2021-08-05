@@ -81,7 +81,8 @@ import SideBarMenu from "@/components/SideBarMenu";
 import StartOrderModal from "@/components/StartOrderModal";
 import Alert from "@/components/Alert";
 
-import { instance } from "@/api";
+import axios from "axios";
+let instance = "";
 
 export default {
   components: {
@@ -178,7 +179,7 @@ export default {
       if (e?.categoryIndex != undefined) {
         localStorage.setItem("categoryIndex", e?.categoryIndex || 0);
         this.categoryIndex = e?.categoryIndex;
-      } else this.categoryIndex = localStorage.getItem("categoryIndex");
+      } else this.categoryIndex = localStorage.getItem("categoryIndex") || 0;
 
       this.selectedCategoryValue = this.categories[this.categoryIndex].value;
       this.selectedCategoryName = this.categories[this.categoryIndex].name;
@@ -212,12 +213,24 @@ export default {
       this.getCategoryOrders();
     },
 
-    removeAuthentication(){
-      this.$emit("removeAuthentication")
-    }
+    removeAuthentication() {
+      this.$emit("removeAuthentication");
+    },
   },
 
   mounted: function() {
+    instance = axios.create({
+      baseURL: process.env.VUE_APP_API_ENDPOINT,
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${
+          document.cookie
+            .split(";")
+            .filter((row) => row.startsWith("access"))[0]
+            .split("=")[1]
+        }`,
+      },
+    });
     this.getCategoryOrders();
   },
 };
