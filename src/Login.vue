@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-5 gap-0">
+  <div class="grid grid-cols-5 gap-0 bg-white">
     <div
       class="col-start-1 col-end-3 bg-green-750 flex flex-row justify-center items-center min-h-screen"
     >
