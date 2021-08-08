@@ -2,27 +2,26 @@
   <div class="order-details-component flex justify-between flex-col bg-white">
     <div>
       <div
-        class="order-details-header flex justify-between py-2 px-5 text-white"
+        class="bg-red-450 order-details-header flex justify-between py-2 px-5 text-white"
         :class="{
-          'bg-red-450': order.status == 'new',
-          'bg-yellow-450': order.status == 'preparing',
-          'bg-green-450': order.status == 'ready',
+          'bg-red-450': order.status == 'out-of-sla',
+          'bg-green-450': order.status == 'in-sla',
         }"
       >
         <p>
-          <span class="font-bold">{{ order.name }}</span> <br />
-          <span class="date"> {{ order.date }}</span>
+          <span class="font-bold block">{{ order.customer_name }}</span>
+          <span class="date"> {{ order.time }}</span>
         </p>
         <p>
-          <span>طلب رقم </span> <br />
-          <span class="font-bold number">{{ order.number }}</span>
+          <span class="block">طلب رقم </span>
+          <span class="font-bold number">{{ order.order_number }}</span>
         </p>
       </div>
 
       <div class="px-5">
         <div
           v-for="(item, itemIndex) in order.items"
-          :key="item.status"
+          :key="item.id"
           class="flex justify-between items-center border-b border-gray-300 py-4"
         >
           <div
@@ -31,13 +30,14 @@
               'line-through opacity-50': item.status == 'cancelled',
             }"
           >
-            <p class="font-bold">
-              {{ item.quantity }} {{ item.measurmentUnit }} - {{ item.type }}
-            </p>
-            <p v-if="item.note">"{{ item.note }}"</p>
+            <p class="font-bold">{{ item.qty }} {{ item.name }}</p>
+            <p v-if="item.note">"{{ item.customer_comment }}"</p>
           </div>
 
-          <div v-if="item.status == ''" class="flex justify-around w-1/4">
+          <div
+            v-if="item.status == 'IN_PROGRESS'"
+            class="flex justify-around w-1/4"
+          >
             <img
               src="@/assets/sprite/svg/confirm.svg"
               alt="Confirm Icon"
@@ -87,12 +87,6 @@
 export default {
   props: ["order"],
 
-  data() {
-    return {
-      printCount: 1,
-    };
-  },
-
   methods: {
     changeItemStatus(idx, newStatus) {
       this.$emit("newOrderStatus", {
@@ -104,7 +98,7 @@ export default {
     },
 
     emitFinishOrderEvent() {
-      this.$emit("finishOrderClick");
+      this.$emit("finishOrderClick", { id: this.order.id });
     },
   },
 };

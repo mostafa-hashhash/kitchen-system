@@ -17,9 +17,10 @@
     <div>
       <h3 class="mt-5">الأقسام</h3>
       <ul>
-        <li @click="notifyCategortySelection(0)"><a> قسم الجبن</a></li>
-        <li @click="notifyCategortySelection(1)"><a> قسم اللحوم</a></li>
+        <li @click="notifyCategortySelection(0)"><a> قسم اللحوم</a></li>
+        <li @click="notifyCategortySelection(1)"><a> قسم الجبن</a></li>
         <li @click="notifyCategortySelection(2)"><a> قسم الأسماك</a></li>
+        <li @click="notifyCategortySelection(3)"><a> قسم الدواجن</a></li>
       </ul>
     </div>
 
@@ -27,7 +28,7 @@
       <h3 class="mt-10">الإعدادات</h3>
       <ul>
         <li><a>تغيير كلمة السر</a></li>
-        <li><a class="logout">تسجيل الخروج</a></li>
+        <li @click="logout"><a class="logout">تسجيل الخروج</a></li>
       </ul>
     </div>
   </div>
@@ -49,6 +50,10 @@ export default {
     notifyCategortySelection(num) {
       this.$emit("categorySelection", { categoryIndex: num });
     },
+
+    logout(){
+      this.$emit("logoutClick")
+    }
   },
 };
 </script>

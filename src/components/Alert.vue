@@ -10,7 +10,7 @@
         />
         <p class="text-center text-green-999 pl-10 pr-2">
           تم انهاء تنفيذ الطلب بنجاح! <br />
-          الوقت المستغرق 00:10 دقيقة
+          الوقت المستغرق {{ orderTime }} دقيقة
         </p>
       </div>
       <img
@@ -25,6 +25,8 @@
 
 <script>
 export default {
+  props: ["orderTime"],
+
   methods: {
     emitCloseAlertEvent() {
       this.$emit("closeAlertClick");

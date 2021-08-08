@@ -9,26 +9,29 @@
         alt="closing icon"
       />
 
-      <div class="py-6 px-10 mx-10">
-
-        <p class="my-4 text-center">أدخل الكود الخاص بك</p>
+      <div class="py-3 px-10 mx-10">
+        <p class="mb-4 text-center">أدخل الكود الخاص بك</p>
 
         <div class="my-4 ">
-          <div class="inline-block ml-5">
-            <label class="mb-2 block" for="code">الكود</label>
-            <input
-              type="text"
-              v-model="code"
-              placeholder="1234"
-              class="px-4 py-2 block border rounded-lg outline-none shadow-lg w-full"
-            />
-          </div>
+          <form action="" @submit.prevent="startOrderWithCode">
+            <div class="inline-block ml-5">
+              <label class="mb-2 block" for="code">الكود</label>
+              <input
+                type="text"
+                v-model="code"
+                placeholder="1234"
+                required
+                class="px-4 py-2 block border rounded-lg outline-none shadow-lg w-full"
+              />
+            </div>
 
-          <button
-            class="start-order-btn bg-green-750 text-white px-6 py-2 rounded-lg shadow-xl focus:outline-none"
-          >
-            ابدأ الطلب
-          </button>
+            <input
+              class="start-order-btn bg-green-750 text-white px-6 py-2 rounded-lg shadow-xl focus:outline-none cursor-pointer"
+              @click="startOrderWithCode()"
+              type="submit"
+              value="ابدأ الطلب"
+            />
+          </form>
         </div>
       </div>
     </div>
@@ -47,6 +50,13 @@ export default {
     emitCloseModalEvent() {
       this.$emit("closeModalClick");
     },
+
+    startOrderWithCode() {
+      if (this.code) {
+        this.$emit("newOrderCode", { code: this.code });
+        this.emitCloseModalEvent();
+      }
+    },
   },
 };
 </script>
@@ -54,23 +64,10 @@ export default {
 <style>
 .start-order-btn:active {
   box-shadow: none !important;
-  background-color: #005931 !important;
-}
-
-.or {
-  display: flex;
-}
-.or::after,
-.or::before {
-  content: " ";
-  width: 100%;
-  margin: 10px;
-  padding: 5px;
-  background: url("../assets/sprite/svg/bar.svg") center no-repeat;
 }
 
 .card {
-  top: 20vh;
+  top: 30vh;
   left: 30vw;
 }
 </style>

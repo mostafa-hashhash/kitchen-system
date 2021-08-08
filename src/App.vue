@@ -1,14 +1,42 @@
 <template>
-  <Nav />
+  <Category
+    @removeAuthentication="removeAcessTokenCookie"
+    v-if="isAuthenticated"
+  />
+  <Login @setAuthentication="storeAccessToken" v-else />
 </template>
 
 <script>
-import Nav from "@/login";
+import Category from "@/Category";
+import Login from "@/Login";
 
 export default {
   name: "App",
+  data() {
+    return {
+      isAuthenticated: false,
+    };
+  },
   components: {
-    Nav,
+    Category,
+    Login,
+  },
+
+  methods: {
+    removeAcessTokenCookie() {
+      document.cookie =
+        "access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+      this.isAuthenticated = false;
+    },
+
+    storeAccessToken(data) {
+      document.cookie = `access_token=${data.token_type} ${data.access_token}; max-age=${data.expires_in}; path=/`;
+      this.isAuthenticated = true;
+    },
+  },
+
+  mounted: function() {
+    this.isAuthenticated = document.cookie ? true : false;
   },
 };
 </script>
