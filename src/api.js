@@ -7,6 +7,7 @@ export const instance = axios.create({
   baseURL: process.env.VUE_APP_API_ENDPOINT,
   headers: {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
     'Authorization': `${access_token}`
   }
 });
