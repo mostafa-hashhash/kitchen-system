@@ -1,5 +1,6 @@
 module.exports = {
   pluginOptions: {
+    publicPath: '/kitchen-system/',
     svgSprite: {
       /*
       * The directory containing your SVG files.
